@@ -11,8 +11,9 @@
         <!-- javascript -->
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="node_modules/Chart.js/dist/chart.bundle.js"></script>
         <script async src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-        <script src="js/2.1.js"></script>
+        <script src="js/chapter2.js"></script>
     </head>
 
     <body>
@@ -68,7 +69,7 @@
                                         <label for="v_type_text">V带型号：</label>
                                         <select id="v_type_text"></select>
                                     </fieldset>
-                                    <hr>
+                                    <hr />
                                     <fieldset>
                                         <legend>输出参数</legend>
                                         <label for="v_dmin_text">V带轮最小基准直径（mm）：</label>
@@ -213,6 +214,11 @@
                         <p>式中：\(i=1,2,3,...,n-1,n，n\)为插值点数。</p>
                         <hr>
                         <div id="2_2_1_1_table" class="table-responsive"></div>
+                        <div style="width:75%">
+                            <div>
+                                <canvas id="2_2_1_1_canvas"></canvas>
+                            </div>
+                        </div>
                         <form>
                             <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_2_1_1()" />
                             <hr />
@@ -222,9 +228,7 @@
                             <label for="v_tape_ka_text">包角系数</label>
                             <input type="text" id="v_tape_ka_text">
                             <hr />
-
-                            <button type="button" class="btn btn-default">查询</button>
-
+                            <button type="button" class="btn btn-default" onclick="searchVTapeKa()">查询</button>
                         </form>
                     </div>
                 </div>
@@ -232,8 +236,10 @@
             </div>
         </div>
         <!-- 2.2 函数数表 -->
+
         <script type="text/x-mathjax-config">
             MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true }, TeX: { equationNumbers: { autoNumber: "AMS" } } });
+
         </script>
     </body>
 
