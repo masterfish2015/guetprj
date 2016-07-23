@@ -1,0 +1,19 @@
+{
+  "name": "cad",
+  "version": "1.0.0",
+  "description": "计算机辅助设计",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cad"
+  ],
+  "author": "ldc",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^1.9.1",
+    "mathjax": "^2.6.1"
+  }
+}

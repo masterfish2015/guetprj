@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>数表和线图程序化基础</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        <!-- javascript -->
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script async src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="js/2.1.js"></script>
+    </head>
+
+    <body>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"> <a data-toggle="collapse" href="#2_1_panel" >2.1非函数表</a> </h1>
+            </div>
+            <div class="panel-body collapse" id="2_1_panel">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"> <a data-toggle="collapse" href="#2_1_1_body" > 2.1.1 一维非函数数表 </a> </h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_1_1_body">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_1_1_body" > (1)单行表  </a> </h3>
+                            </div>
+                            <div class="pannel-body collapse" id="2_1_1_1_body">
+                                <img src="images/key.jpg">
+                                <img src="images/key2.png">
+                                <div id="table2-1" class="table-responsive"></div>
+                                <form id="form2-1" class="form">
+                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_1()" />
+                                    <fieldset>
+                                        <legend>输入参数</legend>
+                                        <label for="hub_length_text">输入轮毂长度（mm）：</label>
+                                        <input type="text" id="hub_length_text" />
+                                    </fieldset>
+                                    <hr>
+                                    <fieldset>
+                                        <legend>输出参数</legend>
+                                        <label for="key_length_text">标准平键长度（mm）：</label>
+                                        <input type="text" id="key_length_text" disabled="disabled" />
+                                    </fieldset>
+                                    <input type="button" id="search_key_length" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchKeyLength()" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_1_2_body" > (2)多行表  </a> </h3>
+                            </div>
+                            <div class="panel-body collapse" id="2_1_1_2_body">
+                                <img src="images/v-tape-1.jpg">
+                                <img src="images/v-tape-2.gif">
+                                <img src="images/v-tape-3.jpg">
+                                <img src="images/v-tape-4.jpg">
+                                <div id="table2-2" class="table-responsive"></div>
+                                <form id="form2-2" class="form">
+                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_2()" />
+                                    <fieldset>
+                                        <legend>输入参数</legend>
+                                        <label for="v_type_text">V带型号：</label>
+                                        <select id="v_type_text"></select>
+                                    </fieldset>
+                                    <hr>
+                                    <fieldset>
+                                        <legend>输出参数</legend>
+                                        <label for="v_dmin_text">V带轮最小基准直径（mm）：</label>
+                                        <input type="text" id="v_dmin_text" disabled="disabled" />
+                                    </fieldset>
+                                    <input type="button" id="search_v_tape_dmin" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchVTapeDmin()" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"> <a data-toggle="collapse" href="#2_1_2_body" > 2.1.2 二维非函数数表  </a> </h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_1_2_body">
+                        <img src="images/linker1.gif">
+                        <img src="images/linker2.gif">
+                        <img src="images/液力传动原理.jpg">
+                        <img src="images/电动机1.jpg">
+                        <div id="table2-3" class="table-responsive"></div>
+                        <form id="form2-3" class="form">
+                            <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_3()" />
+                            <fieldset>
+                                <legend>输入参数</legend>
+                                <label for="working_machine_type_select">工作机种类：</label>
+                                <select id="working_machine_type_select"></select>
+                                <label for="prime_mover_type_select">原动机种类：</label>
+                                <select id="prime_mover_type_select"></select>
+                            </fieldset>
+                            <hr>
+                            <fieldset>
+                                <legend>输出参数</legend>
+                                <label for="working_condition_coefficien_text">工作情况系数：</label>
+                                <input type="text" id="working_condition_coefficien_text" disabled="disabled" />
+                            </fieldset>
+                            <input type="button" id="search_chain_working_condition_coefficient" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchChainWorkingConditionCoefficient()" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">  <a data-toggle="collapse" href="#2_1_3_body" > 2.1.3 三维非函数数表 </a> </h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_1_3_body">
+                        <img src="images/v-tape-1.jpg">
+                        <img src="images/v-tape-2.gif">
+                        <img src="images/v-tape-3.jpg">
+                        <img src="images/v-tape-4.jpg">
+                        <div id="table2-4" class="table-responsive"></div>
+                        <form id="form2-4" class="form">
+                            <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_4()" />
+                            <fieldset>
+                                <legend>输入参数</legend>
+                                <label for="v_tape_working_condition_select">载荷情况：</label>
+                                <select id="v_tape_working_condition_select"></select>
+                                <label for="v_tape_startup_condition_select">起动情况：</label>
+                                <select id="v_tape_startup_condition_select"></select>
+                                <label for="v_tape_working_time_select">每天工作小时：</label>
+                                <select id="v_tape_working_time_select"></select>
+                            </fieldset>
+                            <hr>
+                            <fieldset>
+                                <legend>输出参数</legend>
+                                <label for="v_tape_working_condition_coefficien_text">工作情况系数：</label>
+                                <input type="text" id="v_tape_working_condition_coefficien_text" disabled="disabled" />
+                            </fieldset>
+                            <input type="button" id="search_v_tape_working_condition_coefficient" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchVTapeWorkingConditionCoefficient()" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"> <a data-toggle="collapse" href="#2_1_4_body" > 2.1.4 不规则非函数数表 </a> </h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_1_4_body">
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_4_1_body" > (1)一维不规则非函数数表 </a> </h3>
+                            </div>
+                            <div class="panel-body collapse" id="2_1_4_1_body">
+                                <img src="images/gear4.gif">
+                                <img src="images/gear2.png">
+                                <img src="images/gear3.png">
+                                <img src="images/gear1.png">
+                                <div id="table2-5" class="table-responsive"></div>
+                                <form id="form2-5" class="form">
+                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_5()" />
+                                    <fieldset>
+                                        <legend>输入参数</legend>
+                                        <label for="gear_modulus_text">初选模数：</label>
+                                        <input type="text" id="gear_modulus_text" />
+                                        <label for="gear_only_first_series_checkbox">只选用第一系列</label>
+                                        <input type="checkbox" class="btn btn-default" id="gear_only_first_series_checkbox" />
+                                    </fieldset>
+                                    <hr>
+                                    <fieldset>
+                                        <legend>输出参数</legend>
+                                        <label for="gear_standard_modulus_text">标准模数：</label>
+                                        <input type="text" id="gear_standard_modulus_text" disabled="disabled" />
+                                        <label for="gear_series_text">标准系列：</label>
+                                        <input type="text" id="gear_series_text" disabled="disabled" />
+                                    </fieldset>
+                                    <input type="button" id="search_gear_modulus" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchGearModulus()" />
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_4_2_body" > (2)二维三维不规则非函数数表 </a> </h3>
+                            </div>
+                            <div class="panel-body collapse" id="2_1_4_2_body">
+                                <p>可以将空格处设置为0（或其他的不常见的值，比如负值等），转换为规则表</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- 2.1 非函数表 -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><a data-toggle="collapse" href="#2_2_body">2.2 函数数表和函数插值 </a></h1>
+            </div>
+            <div class="panel-body collapse" id="2_2_body">
+                <p>函数插值的基本思想是构造一个简单的函数\(g(x)\)作为列表函数\(f(x)\)的近似表达式，然后计算插值点的值，以近似代替\(f(x)\)的值。</p>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><a data-toggle="collapse" href="#2_2_1_body" >2.2.1 线性插值</a></h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_2_1_body">
+                        <p>线性插值是由两点值\((x_i, y_i), (x_{i+1}, y_{i+1})\)求给定的插值点\(x\)对应的函数值\(y\)。由解析几何关于直线的方程可以得到下面的计算公式：</p>
+                        \[ y=y_i+\frac{y_{i+1}-y_i}{x_{i+1}-x_i}(x-x_i) \tag{3-1}\]
+                        <p>式中：\(i=1,2,3,...,n-1,n，n\)为插值点数。</p>
+                        <hr>
+                        <div id="2_2_1_1_table" class="table-responsive"></div>
+                        <form>
+                            <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_2_1_1()" />
+                            <hr />
+                            <label for="v_tape_alpha_text">小带轮包角（单位：°）</label>
+                            <input type="text" id="v_tape_alpha_text">
+                            <hr />
+                            <label for="v_tape_ka_text">包角系数</label>
+                            <input type="text" id="v_tape_ka_text">
+                            <hr />
+
+                            <button type="button" class="btn btn-default">查询</button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- 2.2 函数数表 -->
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true }, TeX: { equationNumbers: { autoNumber: "AMS" } } });
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "c_program_a",
+  "description": "teaching material of c program language",
+  "main": "server.js",
+  "authors": [
+    "ldc"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "c",
+    "makefile",
+    "autotool",
+    "vim"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "prism": "^1.5.1"
+  }
+}

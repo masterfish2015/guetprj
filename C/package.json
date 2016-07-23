@@ -1,0 +1,20 @@
+{
+  "name": "c_program_a",
+  "version": "1.0.0",
+  "description": "teaching material of c program language",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "c",
+    "makefile",
+    "autotool",
+    "vim"
+  ],
+  "author": "ldc",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
