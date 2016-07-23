@@ -1,0 +1,20 @@
+{
+  "name": "cad",
+  "description": "计算机辅助设计",
+  "main": "server.js",
+  "authors": [
+    "ldc"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cad"
+  ],
+  "homepage": "https://github.com/masterfish2015/guetprj",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

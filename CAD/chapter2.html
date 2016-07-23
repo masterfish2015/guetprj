@@ -6,11 +6,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSS -->
-        <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/bootstrapValidator/dist/css/bootstrapValidator.min.css" />
 
         <!-- javascript -->
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/bootstrapValidator/dist/js/bootstrapValidator.js"></script>
         <script src="node_modules/Chart.js/dist/chart.bundle.js"></script>
         <script async src="node_modules/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script src="js/chapter2.js"></script>
@@ -31,52 +33,87 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_1_1_body" > (1)单行表  </a> </h3>
                             </div>
-                            <div class="pannel-body collapse" id="2_1_1_1_body">
+                            <div class="pannel-body container collapse" id="2_1_1_1_body">
                                 <img src="images/key.jpg">
                                 <img src="images/key2.png">
-                                <div id="table2-1" class="table-responsive"></div>
-                                <form id="form2-1" class="form">
-                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_1()" />
-                                    <fieldset>
-                                        <legend>输入参数</legend>
-                                        <label for="hub_length_text">输入轮毂长度（mm）：</label>
-                                        <input type="text" id="hub_length_text" />
-                                    </fieldset>
-                                    <hr>
-                                    <fieldset>
-                                        <legend>输出参数</legend>
-                                        <label for="key_length_text">标准平键长度（mm）：</label>
-                                        <input type="text" id="key_length_text" disabled="disabled" />
-                                    </fieldset>
-                                    <input type="button" id="search_key_length" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchKeyLength()" />
-                                </form>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div id="table2-1" class="table-responsive"></div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="button" id="show_table_2_1_btn" class="btn btn-default" value="显示表格" onclick="showTable2_1()" />
+                                    </li>
+                                    <li class="list-group-item active">
+                                        <span>输入参数</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <form id="2_1_1_1_input_form">
+                                            <div class="form-group">
+                                                <label for="hub_length_text">输入轮毂长度（mm）：</label>
+                                                <input class="form-control" id="hub_length_text" type="number" data-bv-numeric-message="必须输入数值" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li class="list-group-item active">
+                                        <span>输出参数</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="form-group">
+                                            <label for="key_length_text">标准平键长度（mm）：</label>
+                                            <input type="text" class="form-control" id="key_length_text" disabled="disabled" />
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="button" id="search_key_length_btn" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchKeyLength()" />
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
+
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h3 class="panel-title"> <a data-toggle="collapse" href="#2_1_1_2_body" > (2)多行表  </a> </h3>
                             </div>
-                            <div class="panel-body collapse" id="2_1_1_2_body">
+                            <div class="panel-body container collapse" id="2_1_1_2_body">
                                 <img src="images/v-tape-1.jpg">
                                 <img src="images/v-tape-2.gif">
                                 <img src="images/v-tape-3.jpg">
                                 <img src="images/v-tape-4.jpg">
-                                <div id="table2-2" class="table-responsive"></div>
-                                <form id="form2-2" class="form">
-                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_2()" />
-                                    <fieldset>
-                                        <legend>输入参数</legend>
-                                        <label for="v_type_text">V带型号：</label>
-                                        <select id="v_type_text"></select>
-                                    </fieldset>
-                                    <hr />
-                                    <fieldset>
-                                        <legend>输出参数</legend>
-                                        <label for="v_dmin_text">V带轮最小基准直径（mm）：</label>
-                                        <input type="text" id="v_dmin_text" disabled="disabled" />
-                                    </fieldset>
-                                    <input type="button" id="search_v_tape_dmin" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchVTapeDmin()" />
-                                </form>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div id="table2-2" class="table-responsive"></div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="button" id="show_table_2_2_btn" class="btn btn-default" value="显示表格" onclick="showTable2_2()" />
+                                    </li>
+                                    <li class="list-group-item active">
+                                        <span>输入参数</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="v_type_text">V带型号：</label>
+                                                <select id="v_type_text"></select>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li class="list-group-item active">
+                                        <span>输出参数</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="v_dmin_text">V带轮最小基准直径（mm）：</label>
+                                                <input type="text" id="v_dmin_text" disabled="disabled" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="button" id="search_v_tape_dmin" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchVTapeDmin()" />
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -161,7 +198,7 @@
                                 <img src="images/gear1.png">
                                 <div id="table2-5" class="table-responsive"></div>
                                 <form id="form2-5" class="form">
-                                    <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_5()" />
+                                    <input type="button" id="show_table_2_5_btn" class="btn btn-default" value="显示表格" onclick="showTable2_5()" />
                                     <fieldset>
                                         <legend>输入参数</legend>
                                         <label for="gear_modulus_text">初选模数：</label>
@@ -177,7 +214,7 @@
                                         <label for="gear_series_text">标准系列：</label>
                                         <input type="text" id="gear_series_text" disabled="disabled" />
                                     </fieldset>
-                                    <input type="button" id="search_gear_modulus" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchGearModulus()" />
+                                    <input type="button" id="search_gear_modulus_btn" class="btn btn-default" disabled="disabled" value="开始查询" onclick="searchGearModulus()" />
                                 </form>
                             </div>
                         </div>
@@ -220,7 +257,7 @@
                             </div>
                         </div>
                         <form>
-                            <input type="button" class="btn btn-default" value="显示表格" onclick="showTable2_2_1_1()" />
+                            <input type="button" id="show_table_2_2_1_1_btn" class="btn btn-default" value="显示表格" onclick="showTable2_2_1_1()" />
                             <hr />
                             <label for="v_tape_alpha_text">小带轮包角（单位：°）</label>
                             <input type="text" id="v_tape_alpha_text">
@@ -228,7 +265,7 @@
                             <label for="v_tape_ka_text">包角系数</label>
                             <input type="text" id="v_tape_ka_text">
                             <hr />
-                            <button type="button" class="btn btn-default" onclick="searchVTapeKa()">查询</button>
+                            <button type="button" id="search_v_tape_Ka_btn" class="btn btn-default" disabled="disabled" onclick="searchVTapeKa()">查询</button>
                         </form>
                     </div>
                 </div>

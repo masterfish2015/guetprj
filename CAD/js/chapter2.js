@@ -1,5 +1,17 @@
 var chapt2 = {};
 
+$( document )
+	.ready( function () {
+		$( '#2_1_1_1_input_form' )
+			.bootstrapValidator( {
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				}
+			} );
+	} );
+
 function showTable2_1() {
 	var str = "<table class='table-bordered table-condensed table-striped'><caption>表2-1 普通平键的长度系列表（单位：mm）</caption><tr><th>L系列</th>";
 
@@ -13,8 +25,10 @@ function showTable2_1() {
 
 	$( "#table2-1" )
 		.html( str );
-	$( "#search_key_length" )
+	$( "#search_key_length_btn" )
 		.removeAttr( "disabled" );
+	$( "#show_table_2_1_btn" )
+		.attr( "disabled", "disabled" );
 }
 
 function searchKeyLength() {
@@ -56,6 +70,8 @@ function showTable2_2() {
 		.html( str );
 	$( "#search_v_tape_dmin" )
 		.removeAttr( "disabled" );
+	$( "#show_table_2_2_btn" )
+		.attr( "disabled", "disabled" );
 }
 
 function searchVTapeDmin() {
@@ -201,8 +217,10 @@ function showTable2_5() {
 	str += "</table>";
 	$( "#table2-5" )
 		.html( str );
-	$( "#search_gear_modulus" )
+	$( "#search_gear_modulus_btn" )
 		.removeAttr( "disabled" );
+	$( "#show_table_2_5_btn" )
+		.attr( "disabled", "disabled" );;
 }
 
 function searchGearModulus() {
@@ -246,6 +264,7 @@ function searchGearModulus() {
 		}
 		$( "#gear_standard_modulus_text" )
 			.val( m1 );
+
 	}
 }
 
@@ -329,6 +348,10 @@ function showTable2_2_1_1() {
 			}
 		}
 	} );
+	$( "#show_table_2_2_1_1_btn" )
+		.attr( "disabled", "disabled" );
+	$( "#search_v_tape_Ka_btn" )
+		.removeAttr( "disabled" );
 }
 
 function searchVTapeKa() {
@@ -369,10 +392,6 @@ function searchVTapeKa() {
 		x: alpha,
 		y: ka
 	} );
-	// window.scatterData1.datasets[ 0 ].data.sort( function ( a, b ) {
-	// 	return a.x - b.x;
-	// } );
-	//window.scatterData1.datasets[1]=window.scatterData1.datasets[1] || {};
 
 	window.myScatter.update();
 }
