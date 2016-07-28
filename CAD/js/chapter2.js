@@ -268,22 +268,27 @@ function searchGearModulus() {
 	}
 }
 
-function showTable2_2_1_1() {
+function _make_table_2_2_x_1( table ) {
 	chapt2.v_tape = chapt2.v_tape || {};
-	chapt2.v_tape.cornerite_coefficient = {};
+	chapt2.v_tape.cornerite_coefficient = chapt2.v_tape.cornerite_coefficient || {};
 	chapt2.v_tape.cornerite_coefficient.alpha = [ 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175, 180 ];
-	chapt2.v_tape.cornerite_coefficient.ka = [ 0.69, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.89, 0.91, 0.92, 0.93, 0.95, 0.96, 0.98, 0.99, 1.00 ];
+	//chapt2.v_tape.cornerite_coefficient.ka = [ 0.69, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.89, 0.91, 0.92, 0.93, 0.95, 0.96, 0.98, 0.99, 1.00 ];
+	chapt2.v_tape.cornerite_coefficient.ka = [ 0.60, 0.72, 0.78, 0.76, 0.75, 0.80, 0.86, 0.84, 0.82, 0.88, 0.99, 0.91, 0.92, 0.93, 0.95, 0.95, 0.98, 0.99, 1.00 ];
+
 	var scatterChartData = {
 		datasets: [ {
 			label: "V 带包角系数",
 			data: [],
+			pointStyle: "triangle",
 			pointBorderWidth: 1,
+			lineTension: 0,
 			backgroundColor: "rgba(0,255,0,0.2)",
 			pointBackgroundColor: "rgba(0,255,0,0.2)"
 		}, {
 			label: "查询的点",
 			data: [],
-			pointRadius: 5,
+			pointStyle: "circle",
+			pointRadius: 10,
 			showLine: false,
 			backgroundColor: "rgba(255,0,0,0.7)",
 			pointBackgroundColor: "rgba(255,0,0,0.7)"
@@ -291,8 +296,8 @@ function showTable2_2_1_1() {
 	};
 
 
-	var div = $( "#2_2_1_1_table" );
-	var str = "<table class='table-bordered table-condensed table-striped'><caption>表2-2-1-1 V带包角系数<i>K<sub>α</sub></i></caption>";
+	var div = $( "#" + table + "_table" );
+	var str = "<table class='table-bordered table-condensed table-striped'><caption>表" + table + " V带包角系数<i>K<sub>α</sub></i></caption>";
 
 	str += "<tr><th><i>α</i></th>";
 	for ( var i in chapt2.v_tape.cornerite_coefficient.alpha ) {
@@ -313,11 +318,11 @@ function showTable2_2_1_1() {
 	str += "</table>";
 	div.html( str );
 	//显示曲线
-	var ctx = document.getElementById( "2_2_1_1_canvas" )
+	var ctx = document.getElementById( table + "_canvas" )
 		.getContext( "2d" );
 
-	window.scatterData1 = scatterChartData;
-	window.myScatter = Chart.Scatter( ctx, {
+	window[ "scatter_" + table ] = scatterChartData;
+	window[ "scatterChart_" + table ] = Chart.Scatter( ctx, {
 		data: scatterChartData,
 		options: {
 			title: {
@@ -348,50 +353,167 @@ function showTable2_2_1_1() {
 			}
 		}
 	} );
+
+}
+
+function showTable2_2_1_1() {
+	_make_table_2_2_x_1( "2_2_1_1" );
+
 	$( "#show_table_2_2_1_1_btn" )
 		.attr( "disabled", "disabled" );
 	$( "#search_v_tape_Ka_btn" )
 		.removeAttr( "disabled" );
 }
 
+function showTable2_2_2_1() {
+	_make_table_2_2_x_1( "2_2_2_1" );
+
+	$( "#show_table_2_2_2_1_btn" )
+		.attr( "disabled", "disabled" );
+	$( "#search_v_tape_Ka2_btn" )
+		.removeAttr( "disabled" );
+}
+
+function showTable2_2_3_1() {
+	_make_table_2_2_x_1( "2_2_3_1" );
+
+	$( "#show_table_2_2_3_1_btn" )
+		.attr( "disabled", "disabled" );
+	$( "#search_v_tape_Ka3_btn" )
+		.removeAttr( "disabled" );
+}
+
+function _search_v_tape_ka( interpolation, alpha ) {
+	var alpha_array = chapt2.v_tape.cornerite_coefficient.alpha;
+	var ka_array = chapt2.v_tape.cornerite_coefficient.ka;
+	var a0, a1, a2, ka0, ka1, ka2, ka;
+	var i0, i1, i2, b0, b1, b2;
+
+	switch ( interpolation ) {
+	case "linear":
+		{
+			if ( alpha <= alpha_array[ 0 ] ) {
+				i1 = 0;
+				i2 = 1;
+			} else if ( alpha >= alpha_array[ alpha_array.length - 1 ] ) {
+				i1 = alpha_array.length - 2;
+				i2 = alpha_array.length - 1;
+			} else {
+				for ( i0 in alpha_array ) {
+					if ( alpha < alpha_array[ i0 ] ) {
+						i1 = i0 - 1;
+						i2 = i0;
+						break;
+					}
+				}
+			}
+			a1 = alpha_array[ i1 ];
+			ka1 = ka_array[ i1 ];
+			a2 = alpha_array[ i2 ];
+			ka2 = ka_array[ i2 ];
+			if ( Math.abs( a1 - a2 ) <= 0.0001 ) {
+				ka = ka1;
+			} else {
+				ka = ka1 + ( ka2 - ka1 ) * ( alpha - a1 ) / ( a2 - a1 );
+			}
+			return ka;
+		}
+		break;
+	case "parabola":
+		{
+			if ( alpha <= alpha_array[ 0 ] ) {
+				i0 = 0;
+				i1 = 1;
+				i2 = 2;
+			} else if ( alpha >= alpha_array[ alpha_array.length - 2 ] ) {
+				i0 = alpha_array.length - 3;
+				i1 = alpha_array.length - 2;
+				i2 = alpha_array.length - 1;
+			} else {
+				for ( i1 = 0; i1 < alpha_array.length; i1++ ) {
+					if ( alpha < alpha_array[ i1 ] ) {
+						i0 = i1 - 1;
+						i2 = i1 + 1;
+						break;
+					}
+				}
+			}
+			a0 = alpha_array[ i0 ];
+			ka0 = ka_array[ i0 ];
+			a1 = alpha_array[ i1 ];
+			ka1 = ka_array[ i1 ];
+			a2 = alpha_array[ i2 ];
+			ka2 = ka_array[ i2 ];
+			b0 = ( alpha - a1 ) * ( alpha - a2 ) / ( ( a0 - a1 ) * ( a0 - a2 ) );
+			b1 = ( alpha - a0 ) * ( alpha - a2 ) / ( ( a1 - a0 ) * ( a1 - a2 ) );
+			b2 = ( alpha - a0 ) * ( alpha - a1 ) / ( ( a2 - a0 ) * ( a2 - a1 ) );
+			ka = b0 * ka0 + b1 * ka1 + b2 * ka2;
+			return ka;
+		}
+		break;
+	case "Lagrange":
+		{
+			var w = [],
+				w1 = [];
+			ka = 0;
+			for ( i0 = 0; i0 < alpha_array.length; i0++ ) {
+				w[ i0 ] = 1;
+				w1[ i0 ] = 1;
+				for ( i1 = 0; i1 < alpha_array.length; i1++ ) {
+					if ( i1 != i0 ) {
+						w[ i0 ] *= ( alpha - alpha_array[ i1 ] );
+						w1[ i0 ] *= ( alpha_array[ i0 ] - alpha_array[ i1 ] );
+					}
+				}
+				ka += w[ i0 ] / w1[ i0 ] * ka_array[ i0 ];
+			}
+			return ka;
+		}
+		break;
+	default:
+	}
+}
+
 function searchVTapeKa() {
 	var alpha = parseFloat( $( "#v_tape_alpha_text" )
 		.val() );
-	var alphas = chapt2.v_tape.cornerite_coefficient.alpha;
-	var kas = chapt2.v_tape.cornerite_coefficient.ka;
-	var a1, a2, ka1, ka2, ka;
-	var i, i1, i2;
+	var ka = _search_v_tape_ka( "linear", alpha );
 
-	if ( alpha <= alphas[ 0 ] ) {
-		i1 = 0;
-		i2 = 1;
-	} else if ( alpha >= alphas[ alphas.length - 1 ] ) {
-		i1 = alphas.length - 2;
-		i2 = alphas.length - 1;
-	} else {
-		for ( i in alphas ) {
-			if ( alpha < alphas[ i ] ) {
-				i1 = i - 1;
-				i2 = i;
-				break;
-			}
-		}
-	}
-	a1 = alphas[ i1 ];
-	ka1 = kas[ i1 ];
-	a2 = alphas[ i2 ];
-	ka2 = kas[ i2 ];
-	if ( Math.abs( a1 - a2 ) <= 0.0001 ) {
-		ka = ka1;
-	} else {
-		ka = ka1 + ( ka2 - ka1 ) * ( alpha - a1 ) / ( a2 - a1 );
-	}
 	$( "#v_tape_ka_text" )
 		.val( ka );
-	window.scatterData1.datasets[ 1 ].data.push( {
+	window[ "scatter_2_2_1_1" ].datasets[ 1 ].data.push( {
 		x: alpha,
 		y: ka
 	} );
 
-	window.myScatter.update();
+	window[ "scatterChart_2_2_1_1" ].update();
+}
+
+function searchVTapeKa2() {
+	var alpha = parseFloat( $( "#v_tape_alpha2_text" )
+		.val() );
+	var ka = _search_v_tape_ka( "parabola", alpha );
+
+	$( "#v_tape_ka2_text" )
+		.val( ka );
+	window[ "scatter_2_2_2_1" ].datasets[ 1 ].data.push( {
+		x: alpha,
+		y: ka
+	} );
+
+	window[ "scatterChart_2_2_2_1" ].update();
+}
+
+function searchVTapeKa3() {
+	var alpha = parseFloat( $( "#v_tape_alpha3_text" )
+		.val() );
+	var ka = _search_v_tape_ka( "Lagrange", alpha );
+
+	$( "#v_tape_ka3_text" )
+		.val( ka );
+	window[ "scatter_2_2_3_1" ].datasets[ 1 ].data.push( {
+		x: alpha,
+		y: ka
+	} );
+	window[ "scatterChart_2_2_3_1" ].update();
 }

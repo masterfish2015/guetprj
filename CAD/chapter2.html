@@ -246,9 +246,10 @@
                         <h2 class="panel-title"><a data-toggle="collapse" href="#2_2_1_body" >2.2.1 线性插值</a></h2>
                     </div>
                     <div class="panel-body collapse" id="2_2_1_body">
-                        <p>线性插值是由两点值\((x_i, y_i), (x_{i+1}, y_{i+1})\)求给定的插值点\(x\)对应的函数值\(y\)。由解析几何关于直线的方程可以得到下面的计算公式：</p>
-                        \[ y=y_i+\frac{y_{i+1}-y_i}{x_{i+1}-x_i}(x-x_i) \tag{3-1}\]
-                        <p>式中：\(i=1,2,3,...,n-1,n，n\)为插值点数。</p>
+                        <img src="images/线性插值.jpg">
+                        <p>线性插值是由两点值\(A(x_0, y_0), B(x_1, y_1)\)求给定的插值点\(x\)对应的函数值\(y\)。由解析几何关于直线的方程可以得到下面的计算公式：</p>
+                        \[ y=y_0+\frac{y_1-y_0}{x_1-x_0}\cdot (x-x_0) \tag{2-2-1-1}\]
+                        <p>式中：\(A(x_0,y_0),B(x_1,y_1)\)为插值点。</p>
                         <hr>
                         <div id="2_2_1_1_table" class="table-responsive"></div>
                         <div style="width:75%">
@@ -266,6 +267,65 @@
                             <input type="text" id="v_tape_ka_text">
                             <hr />
                             <button type="button" id="search_v_tape_Ka_btn" class="btn btn-default" disabled="disabled" onclick="searchVTapeKa()">查询</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><a data-toggle="collapse" href="#2_2_2_body" >2.2.2 抛物线插值</a></h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_2_2_body">
+                        <img src="images/抛物线插值.gif">
+                        <p>抛物线插值是由三点值\(M_0(x_0, y_0), M_1(x_1, y_1), M_2(x_2,y_2)\)求给定的插值点\(x\)对应的函数值\(y\)。由解析几何关于抛物线的方程可以得到下面的计算公式：</p>
+                        \[ y=B_0(x)\cdot y_0+B_1(x)\cdot y_1+B_2(x)\cdot y_2 \tag{2-2-2-1}\] \[式中：B_0(x)=\frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)}; B_1(x)=\frac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}; B_2(x)=\frac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_2)};\]
+                        <hr>
+                        <div id="2_2_2_1_table" class="table-responsive"></div>
+                        <div style="width:75%">
+                            <div>
+                                <canvas id="2_2_2_1_canvas"></canvas>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" id="show_table_2_2_2_1_btn" class="btn btn-default" value="显示表格" onclick="showTable2_2_2_1()" />
+                            <hr />
+                            <label for="v_tape_alpha2_text">小带轮包角（单位：°）</label>
+                            <input type="text" id="v_tape_alpha2_text">
+                            <hr />
+                            <label for="v_tape_ka2_text">包角系数</label>
+                            <input type="text" id="v_tape_ka2_text">
+                            <hr />
+                            <button type="button" id="search_v_tape_Ka2_btn" class="btn btn-default" disabled="disabled" onclick="searchVTapeKa2()">查询</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><a data-toggle="collapse" href="#2_2_3_body" >2.2.3 拉格朗日插值</a></h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_2_3_body">
+                        <img src="images/拉格朗日插值.gif">
+                        <p>拉格朗日插值是由n+1个值\(M_0(x_0, y_0), M_1(x_1, y_1),..., M_n(x_n,y_n)\)求给定的插值点\(x\)对应的函数值\(y\)。由类似上面抛物线方程可以得到下面的计算公式：</p>
+                        \[ y=\sum^n_{i=0}\frac{\omega_i(x)}{\omega'_i(x_i)}\cdot y_i \tag{2-2-3-1}\] \[式中：\begin{split} \omega_i(x)&=(x-x_0)(x-x_1)...(x-x_{i-1})(x-x_{i+1})...(x-x_n); \\ \omega'_i(x_i)&=(x_i-x_0)(x_i-x_1)...(x_i-x_{i-1})(x_i-x_{i+1})...(x_i-x_n); \end{split}
+                        \]
+                        <hr>
+                        <div id="2_2_3_1_table" class="table-responsive"></div>
+                        <div style="width:75%">
+                            <div>
+                                <canvas id="2_2_3_1_canvas"></canvas>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" id="show_table_2_2_3_1_btn" class="btn btn-default" value="显示表格" onclick="showTable2_2_3_1()" />
+                            <hr />
+                            <label for="v_tape_alpha3_text">小带轮包角（单位：°）</label>
+                            <input type="text" id="v_tape_alpha3_text">
+                            <hr />
+                            <label for="v_tape_ka3_text">包角系数</label>
+                            <input type="text" id="v_tape_ka3_text">
+                            <hr />
+                            <button type="button" id="search_v_tape_Ka3_btn" class="btn btn-default" disabled="disabled" onclick="searchVTapeKa3()">查询</button>
                         </form>
                     </div>
                 </div>
