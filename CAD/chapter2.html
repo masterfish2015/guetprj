@@ -5,6 +5,7 @@
         <title>数表和线图程序化基础</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- CSS -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/bootstrapvalidator/dist/css/bootstrapValidator.css" />
@@ -332,6 +333,37 @@
 
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><a data-toggle="collapse" href="#2_3_body">2.3 曲线拟合 </a></h1>
+            </div>
+            <div class="panel-body collapse" id="2_3_body">
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title"><a data-toggle="collapse" href="#2_3_1_body" >2.3.1 多项式拟合</a></h2>
+                    </div>
+                    <div class="panel-body collapse" id="2_3_1_body">
+                        <img src="images/多项式拟合.png">
+                        <p>多项式拟合最多使用的是最小二乘法，其基本原理：</p>
+                        <p>设用\(P_m(x)=a_1+a_2x+a_3x^2+...+a_{m+1}x^m\)来拟合一组数据\((x_i,y_i), i=1,2,...,n , m \ll n \), </p>
+
+                        <hr>
+                        <div id="2_3_1_1_table" class="table-responsive"></div>
+                        <div style="width:75%">
+                            <div>
+                                <canvas id="2_3_1_1_canvas"></canvas>
+                            </div>
+                        </div>
+                        <form>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 2.2 函数数表 -->
 
         <script type="text/x-mathjax-config">
