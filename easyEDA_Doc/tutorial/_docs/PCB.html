@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="" href="API.html">API</a></li>
+<li><a class="active" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <h1>PCB Design Editor</h1>
+<iframe width="920" height="540" src="//www.youtube.com/embed/EoT2D2PLzVE" frameborder="0" allowfullscreen></iframe>
+After the initial conversion of a schematic to PCB, it is time to learn how to manage EasyEDA’s PCB Design Editor.
+<h2>Canvas</h2>
+<p>Lots of PCB canvas attributes are the same as Schematic canvas attributes. The key is that you can set <strong>units</strong> in PCB canvas attributes.</p>
+<p><img src="images/image64.png" alt="" /></p>
+<h2>PCB Tools</h2>
+<p><img src="images/image147.png" alt="" /></p>
+<h2>Layer Setting</h2>
+<p>Via</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Layer Options...</strong></p>
+<p>you can find the Layer Options Settings dialog.</p>
+<p>In this dialog, you can change the layer’s Color and configure which layers are shown on the Layers Tool. If you plan to design a PCB with more than 2 layers, then you must tick Inner1 and Inner2 for a 4 layer PCB plus Inner3 and Inner4 for a 6 layer PCB.</p>
+<p><img src="images/image139.png" alt="" /></p>
+<h2>Layers Tool</h2>
+<p>Active Layer: The colours of the layers in the <strong>Layers Tool</strong> are defined in the Layer Options Settings. To work on a layer then you must make it the Active layer. To do this; click on the coloured rectangle representing the required layer. The pencil icon in the coloured rectangle, indicates that this is the active layer.</p>
+<p>Show/Hide layers: click on the eye icons to show/hide layers.</p>
+<p>In the example below, the Top Layer is the active layer and all layers are shown:</p>
+<p><img src="images/image03.png" alt="" /></p>
+<p>In this image the Top layer is the active layer.</p>
+<p><img src="images/image71.png" alt="" /></p>
+<p>In this image the Bottom layer is the active layer.</p>
+<p><img src="images/image16.png" alt="" /></p>
+<p>In this image, the Top layer is active and the bottom layer has been hidden<img src="images/image96.png" alt="" /></p>
+<p>HotKeys for layer activation:</p>
+<p><strong>T:</strong> Top Layer is active<br />
+<strong>B:</strong> Bottom Layer<br />
+<strong>1:</strong> Inner1 Layer<br />
+<strong>2:</strong> Inner2 Layer<br />
+<strong>3:</strong> Inner3 Layer<br />
+<strong>4:</strong> Inner4 Layer</p>
+<h2>Track</h2>
+<p>In the schematic editor, we use Wire or the <code>W</code> Hotkey to connect Pins: in a similar way in the PCB editor, we use Track to connect Pads. Track allows you to draw PCB tracks and can be found on the PCB Tools palette or using the <code>W</code> Hotkey (not T: see above!).</p>
+<p><strong>Some Tips about Track.</strong></p>
+<ol>
+<li>
+<p>Single click to start drawing a track. Single click again to pin the track to the canvas and continue on from that point. Right click to end a track. Double right-click to exit track mode.</p>
+</li>
+<li>
+<p>Changing the active layer at the same time to drawing a track, will automatically insert a Via:</p>
+<p><img src="images/image43.png" alt="" /></p>
+<p>If you start drawing a track on the top layer - you will see it drawn in red - then press the B key to change to bottom layer and you will see EasyEDA insert a grey via and then the track will continue being drawn but now on the bottom layer in blue.</p>
+</li>
+<li>
+<p>Pressing the + or - Hotkeys when drawing the track will change the width of the track on the fly.</p>
+</li>
+<li>
+<p>Double clicking the on a drawn section of track will add a new vertex at that point. You can drag the vertex to form a new corner.</p>
+<p><img src="images/image101.png" alt="" /></p>
+</li>
+<li>
+<p>Click to select the track and then Click and Drag on a segment of track adjusts the segment between vertices.</p>
+<p><img src="images/image49.png" alt="" /></p>
+</li>
+<li>
+<p>Pressing the L Hotkey when drawing the track will change the track’s Route Angle on the fly.</p>
+<p><img src="images/image17.png" alt="" /></p>
+</li>
+</ol>
+<h2>Footprint attributes</h2>
+<p>When selecting a Footprint, you can find it’s attributes at the right hand Properties panel.</p>
+<p><img src="images/image14.png" alt="" /></p>
+<p><strong>Layer</strong>: You can set a footrpint to be on the Toplayer or Bottomlayer. Note that the footprint mirrors when swapping layers.</p>
+<p><strong>X-Location and Y-Location</strong>: Move the origin of the footprint to a precise position.</p>
+<p><strong>Rotation</strong>: Rotates the footprint about it’s origin over the range from 0o to any angle in 1o steps (visually of course multiples of 360o will appear identical).</p>
+<h2>Layout A PCB Without Schematic</h2>
+<p>In some small PCB projects, maybe you don’t need a schematic. EasyEDA allows you to layout the PCB directly from the PCB Editor.</p>
+<p>Start a new PCB as shown in the image below and you can add footprints directly from the PCB Libs from Left Navigation List and then just track them.</p>
+<p><img src="images/image69.png" alt="" /></p>
+<h3>Group/Ungroup</h3>
+<p>Just like Group/Ungroup in the Schematic Editor can be used to create a schematic lib symbol in, you can use Group/Ungroup from the PCB Tools palette to create a PCB Lib footprint in the PCB editor.</p>
+<p>First, place Tracks and Pads on the canvas, then select all of them a click ** Group/Ungroup** to group them like the image below:</p>
+<p><img src="images/image82.png" alt="" /></p>
+<h3>Ratline</h3>
+<p><img src="images/image78.png" alt="" /></p>
+<p>When creating a PCB without Schematic, none of the pads on the Footprints have nets connecting them so there will be no ratlines. Rather than try to track the pads from scratch, it is a good idea to connect them up by hand first using Ratline from the PCB Tools palette. This will help you to remember to track the pads correctly with fewer mistakes. You can could also do this by setting netnames for all the pads: if the two pads are given the same net name then EasyEDA will understand that they are connected together and will automatically create a ratline between them.</p>
+<h2>Solid Region in PCB</h2>
+<p>EasyEDA has added a new tool Solid Region for PCB design</p>
+<p><img src="images/latest-upgrade/image11.png" alt="" /></p>
+<p>This is a very useful, quick way to connect Pads:</p>
+<p><img src="images/latest-upgrade/image12.png" alt="" /></p>
+<p>You can draw a Solid Region to include all of these pads with same net name, then set the region to the same net name as the pads. It is like Copper Area but easier to use for small areas. To use Solid Region like this, set the Type attribute (in the right hand Properties panel)  to Solid,</p>
+<p>The Solid Region can also be used to create a cutout in a copper area.</p>
+<p>If you have a copper area but need an area inside it to not be filled then you can draw a Solid Region  and set the Type attribute (in the right hand Properties panel)  to Cutout , then this area will be free of copper, as shown in the image below:</p>
+<p><img src="images/latest-upgrade/image02.png" alt="" /></p>
+<p>Lastly, by setting the Type attribute (in the right hand Properties panel) to NPTH, Solid Region can be used to create a Non Plated Through Hole of an arbitrary shape.</p>
+<p></p>
+<p>When the Gerber files are generated, an area defined by a Solid Region set to a Type NPTH such as shown in the image below, will create an  area defined to be a NPTH hole.</p>
+<p><img src="images/latest-upgrade/image03.png" alt="" /></p>
+<h2>Board Outline</h2>
+<p>Before placing footprint we need to create a board outline. The board outline must be drawn on the <strong>BoardOutLine</strong> layer. So first, set <strong>BoardOutLine</strong> as the active layer, then draw the board outline using <strong>Track</strong> and <strong>Arc</strong> from the PCB Tools palette.
+<img src="images/image09.png" alt="" /></p>
+<p>When converting a Schematic to PCB, EasyEDA will try to create a board outline for you.</p>
+<p>The area of the default board outline area is 1.5 times the sum of the area of all of your footprints, so you can place all of your footprints into this board outline with some allowance for tracking. If you do not like the board outline, you can remove the elements it is made up from  and draw your own.</p>
+<p>The top left corner of the outline is drawn as an Arc simply to illustrate that EasyEDA supports drawing arcs as part of a board outline.</p>
+<p><img src="images/latest-upgrade/image04.png" alt="" /></p>
+<p>To create a simple rectangular board outline, this arc can be removed and the line X and Y end points edited - either directly in the Properties panel or by dragging the line ends - to close the rectangle.</p>
+<p>Alternatively, an outline with more rounded corners can be created by copying the arc and rotating it in 90 degree steps to position it over the desired right angle corners and then editing the line X and Y end points - either by dragging the line ends or directly in the Propertiespanel - to overlap the arc end points (also shown but not editable in the Properties panel).</p>
+<h2>Design Manager</h2>
+<p>Just like Schematic’s Design Manager, PCB’s Design Manager can be found via:</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Design Manager,</strong></p>
+<p>or just press the <code>CTRL+D</code> hotkeys to open the Design Manager dialog.</p>
+<p>In this dialog, you can:</p>
+<ol>
+<li>
+<p>Click a component to highlight it.</p>
+</li>
+<li>
+<p>Check/uncheck a component to show/hide it.</p>
+</li>
+<li>
+<p>Filter to find a component or net.</p>
+</li>
+<li>
+<p>Click a net to highlight the tracks/vias with the same net.</p>
+</li>
+<li>
+<p>Check/uncheck the net to show/hide the net. For example, very often you may want to use this to hide a GND or supply net which has had a copper flood added to turn it into a plane and then show it again later.</p>
+</li>
+<li>
+<p>Double click the net to remove all of the track and via with the net name. If you want to reroute a net, this is the recommended method to use to unroute it first.</p>
+</li>
+</ol>
+<p><img src="./images/DesignManager.png" alt="" /></p>
+<h2>Import Changes</h2>
+<p>Sometimes, while working on a project, you need to make changes to the schematic and then update your board, to incorporate them.</p>
+<p>It's easy to do this with EasyEDA.</p>
+<p>Go to the <strong>PCB Editor</strong>,</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Import Changes</strong></p>
+<p>Or click that button at the tool bar
+<img src="./images/PCBimportChange.png" alt="" /></p>
+<p>If you change the schematic, you will get a Confirm Importing changes information dialog:</p>
+<p><img src="images/image77.png" alt="" /></p>
+<p>If you are happy with your changes, just click the Apply Change button.</p>
+<p>The changes will then be passed into the PCB layout and you can then adjust the tracking to suit.</p>
+<h2>Invalid Packages</h2>
+<p>Some times, when you try to convert a schematic to a PCB, you will get an error message dialog like below. Don’t worry, it is easy to fix this problem.</p>
+<p><img src="images/EasyEDA%20tutorial%202-45255.png" alt="" /></p>
+<p>From the error message, you will find that the symbol’s PIN number is different from PAD number. How cause that? Check the below image,</p>
+<p><img src="images/EasyEDA%20tutorial%202-45393.png" alt="" /></p>
+<p>From the image, we can get the PIN number in the schematic symbol is marked as C, but the PAD Number in the PCB Footprint is mark as K. Now you have know the problem, how to fix this?</p>
+<p>Solution one, Change the schematic symbol.
+Using <a href="./schematic.htm#Pinmap-Modify-symbol-information">PinMap function</a>. Change the PCB PIN from C to K. And save your schematic again.</p>
+<p>Solution Two, Modify the Footprint.
+Edit the Footprint, change the PAD from <strong>K</strong> to <strong>C</strong>.
+So, we should aware that PIN number should be the same as Pad number.</p>
+<h2>Measure</h2>
+<p>Making and adding measurements is useful in PCB design. EasyEDA provides two methods to do this.</p>
+<ol>
+<li>
+<p>Dimension tool in the PCB Tools palette:</p>
+<p><img src="images/image154.png" alt="" /></p>
+</li>
+<li>
+<p>Measure a distance use <strong>M</strong> Hotkey: press <strong>M</strong>, then click the two points which you would like to measure.</p>
+<p><img src="images/image113.png" alt="" /></p>
+</li>
+</ol>
+<h2>Copper Area</h2>
+<p>Sometimes you will want to fill in or flood an area with copper. Usually this copper area will be connected to a net such as <strong>GND</strong> or a supply rail. You can draw the outline of a flood using the <strong>Copper Area</strong> button from the PCB Tools palette.</p>
+<p>When selecting a copper area, you can find it’s attributes from the right hand <strong>Properties</strong> panels.</p>
+<p><img src="images/image135.png" alt="" /></p>
+<p><strong>Layer:</strong> Bottom, Top, Inner1, Inner2, Inner3, Inner4;</p>
+<p><strong>Net:</strong> the net that the copper area is connected to;</p>
+<p><strong>Clearance:</strong> clearance of the copper area from other nets and floods;</p>
+<p><strong>Pad Connection:</strong> direct or spoke (i.e. a cross shaped heat shunt);</p>
+<p><strong>Keep Island:</strong> Yes/No. This keeps or removes any isolated areas of copper created as part of the flooding process. It is usually good practice to removes these unless you really need them to maintain a more even spread of copper (copper balance) on your PCB);</p>
+<p><strong>Fill Style:</strong> No/Filled. No removes the fill so that you can see the tracking more clearly;</p>
+<p>After drawing the copper area, set the net it is to be connected to (floating copper areas are not recommended because they can cause EMC and Signal Integrity (SI) problems).</p>
+<p>Lastly, don’t forget to click the button Rebuild CopperArea to <strong>rebuild</strong> the flood.</p>
+<p><strong>Two Tips:</strong></p>
+<ol>
+<li>Hotkey <code>Shift+B</code> to build all of the copper areas.</li>
+<li>Hotkey <code>Shift+M</code> to clear all of the copper areas.</li>
+</ol>
+<h2>Real Time DRC</h2>
+<p>**Super menu &gt; Miscellaneous &gt; Design Rule Check **</p>
+<p>to open the <strong>DRC</strong> setting dialog:</p>
+<p>This is a big feature of EasyEDA. It is hard to fix DRC errors after layout the PCB. Now EasyEDA will let you know the error in routing. You will find a <code>X</code> flag to mark the error, such as Track to Track or Track to PAD like bellow image
+<img src="./images/RealTimeDRC.png" alt="" />.
+TIP: When you convert a schematic to PCB, the real time DRC is open. In the old PCB, the real time DRC is closed. you can open it via Supper menu-&gt; Miscellaneous-&gt;Design Rule Setting, like bellow image.</p>
+<p><img src="./images/configRealtimeDRC.png" alt="" />.</p>
+<p>##Track and Net length
+when select a track, you can find it's Length attribute in the right panel.
+<img src="./images/track-length.png" alt="" />
+When select a track, then press <code>H</code> key, EasyEDA will highligh the whole net and pop a message box to tell you the whole net's length. like bellow image
+<img src="./images/netLength.png" alt="" /></p>
+<p>##HOLE
+There are lots of users don't know using PAD or VIA as a HOLE, they asked EasyEDA for help, so EasyEDA add a HOLE TOOL in the PCB toolbar.
+<img src="./images/HOLE.png" alt="" /></p>
+<p>##Photo View
+EasyEDA has not a 3D View at present, but we provide a nice Photo View to help you to check the PCB. There is a <code>PhotoView</code> button on the PCB document toolbar, like bellow image. If you can't see this button, try to <strong>reload</strong> again.
+<img src="./images/PhotoView-button.png" alt="" />.</p>
+<p>After convert PCB to Photo View, you can see bellow image.
+<img src="./images/Photview.png" alt="" />.</p>
+<p>In this view, you can find some components are too closest and silk layer on the Pad, bad Footprint etc.</p>
+<p>Bellow image is a blue and purple board.
+<img src="./images/blue-purple.png" alt="" />.</p>
+<p>##Place a Via On a Track
+When placing a <code>via</code> on a track, the track will be cuted to two segments.  Place two vias on a tracks, you will get three segments, then you can change one segment to other layer id, or remove one of them.
+<img src="./images/placeVIAToTrack.png" alt="" />.</p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

@@ -1,0 +1,1285 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="" href="API.html">API</a></li>
+<li><a class="" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="active" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <h1>Introduction to EasyEDA</h1>
+<h2>What's EasyEDA</h2>
+<iframe width="920" height="540" src="//www.youtube.com/embed/fhGYMZgFtho" frameborder="0" allowfullscreen></iframe>
+Welcome to EasyEDA, a great web based EDA tool for electronics engineers, educators, students, makers and enthusiasts.
+<p>There’s no need to install any software. Just open EasyEDA in any HTML5 capable, standards compliant web browser.</p>
+<p>Whether you are using Linux, Mac or Windows; Chrome, Firefox, IE, Opera, or Safari. EasyEDA has all the features you expect and need to rapidly and easily take your design from conception through to production.</p>
+<p><a href="https://easyeda.com/editor">EasyEDA</a> provides:</p>
+<ul>
+<li>Schematic capture</li>
+<li><a href="http://ngspice.sourceforge.net/">ngpice-based</a> simulation</li>
+<li>PCB layout</li>
+<li>PCB Design Rules and Checking</li>
+<li>Export</li>
+<li>PCB netlist in
+<ul>
+<li>Altium Designer</li>
+<li><a href="http://www.kicad-pcb.org/">Kicad</a></li>
+<li>PADS</li>
+</ul>
+</li>
+<li>Spice netlist</li>
+<li>WaveForm simulation plot data (in CSV format)</li>
+<li>Schematic in
+<ul>
+<li>pdf</li>
+<li>image</li>
+<li>SVG</li>
+</ul>
+</li>
+<li>Creation of BoM reports</li>
+<li>Import
+<ul>
+<li>Altium/ProtelDXP Ascii Schematic/PCB</li>
+<li>Eagle Schematic/PCB/libs</li>
+<li>LTspice Schematic/symbols (may require editing for Ngspice compatibility)</li>
+<li><a href="http://www.kicad-pcb.org/">Kicad</a>libs/modules (footprint libraries)</li>
+<li>Spice models and subcircuits</li>
+</ul>
+</li>
+<li>Symbol creation and editing</li>
+<li>Multi-sheet and Hierarchical schematics (passive drawings and active simulation schematics)</li>
+<li>Spice subcircuit creation</li>
+<li>WaveForm viewer</li>
+<li>Post simulation measurements</li>
+<li>PCB footprint creation and editing</li>
+<li>Simple but powerful general drawing capabilities</li>
+<li>Schematic symbol, spice model and PCB footprint library management</li>
+<li>Online sharing of - and collaborative working on - schematics, simulations, PCB layouts, designs and projects</li>
+</ul>
+<h2>Open File Format</h2>
+<p>If you want to hack EasyEDA's EDA files, you can check <a href="https://easyeda.com/Doc/Open-File-Format/">https://easyeda.com/Doc/Open-File-Format/</a> out.</p>
+<ol>
+<li>You can use some codes or notepad to create an EasyEDA file. Cool!</li>
+<li>You can adjust your designs with EasyEDA's API.</li>
+</ol>
+<p>##Allow to adjust the right panel width</p>
+<p><img src="./images/rightPanelWidth.png" alt="" /></p>
+<p>##Zoom in and zoom out
+Try to scroll your mouse, you will find out EasyEDA provide almost Stepless zoom. and the must factor is 10000%.</p>
+<p>##Improved Design Manager
+Old <code>Design Manager</code> is a pop up dialog, it is a bit litter annoying.Now, In the schematic and PCB file, there is toggle button [Design Manager &lt;-&gt; Properties] on the top right, when you switch to Design Manager, you will see bellow image
+<img src="./images/DesignManager.png" alt="" /></p>
+<p>You can highlight the components and net, at the same time, you can check the ** DRC Errors**.</p>
+<p>Schematic has design manager too, and you can filter and highlight the components, such as type a <code>R</code>, you will find all resistors.
+<img src="./images/DesignManager-schematic.png" alt="" /></p>
+<p>##SVG Preview
+<img src="./images/SVG-Preview.png" alt="" />
+After click the <code>SVG Preview</code> button, you will see a nice SVG image and you can save the SVG file to your hard drive. This operation will be faster than export, because you don't need to send the file to EasyEDA server, and it is safe.</p>
+<h2>Schematics</h2>
+<p>EasyEDA can create highly professional looking schematics.</p>
+<p><img src="images/image97.png" alt="" /></p>
+<hr />
+<p>Because EasyEDA has some simple but powerful drawing capabilities, you can create your own symbols either by copying existing symbols into your own library then editing and saving them or by drawing them from scratch.</p>
+<p>There is also a <strong>Symbol Wizard</strong> to quickly draw new symbols for <code>DIP</code>, <code>QFP</code> and <code>SIP</code></p>
+<p></p>
+<p>A feature of EasyEDA is that as well as extensive libraries of the usual simple “2D” graphical schematic symbols, it has a library of drawn <code>3D</code> component symbols, i.e. symbols that look like the physical components that they represent.</p>
+<p>If you have enough time and patience using the drawing features to full effect in symbol creation, your schematic can be built like this:</p>
+<p><img src="images/image111.png" alt="" /></p>
+<p>Another powerful feature is that it is also possible to import symbols from <code>Kicad</code>, <code>Eagle</code> and <code>Altium</code> libraries.</p>
+<p>Finding individual <strong>components</strong> in a dense schematic can be very time consuming. EasyEDA has an easy way to find  - and jump to - components:</p>
+<p><strong>Super Menu &gt; Miscellaneous &gt; Find Component…</strong></p>
+<p>(or <code>Ctrl+F</code>)</p>
+<p><img src="images/image52.png" alt="" /></p>
+<p>This feature will find, highlight and center in the window, parts by their Prefix (or reference designator).  However, it cannot be used to find net names or other text in a schematic.</p>
+<p></p>
+<p>This is where the Design Manager comes in.</p>
+<p><strong>Super Menu &gt; Miscellaneous &gt; Design Manager...</strong></p>
+<p>The Schematic Design Manager is a very powerful tool for finding <strong>components</strong>, <strong>nets</strong> and <strong>pins</strong>.</p>
+<p>Clicking on a Component item <strong>highlights</strong> the component and pans it to the center of the window.</p>
+<p><img src="images/image107.png" alt="" /></p>
+<p>Clicking on a Part pins item brings up a temporary pointer:</p>
+<p></p>
+<p><img src="images/image151.png" alt="" /></p>
+<p>To prepare for the final assembly stage you can create a Bill of Materials (<strong>BOM</strong>) via:</p>
+<p><strong>Super Menu &gt; Miscellaneous &gt; BOM Report...</strong></p>
+<p>and you can produce professional quality SVG, .png or .pdf output files for your documentation.</p>
+<p>Schematic Designs can be shared with colleagues and made public using the</p>
+<p><strong>Document &gt; New &gt; Project... &gt; Create a new project</strong></p>
+<p>settings and the right click <strong>Modify</strong> and** Access Control** options and the <strong>Share</strong> button on the top toolbar.</p>
+<hr />
+<h2>Spice Simulation</h2>
+<p>Integrated into EasyEDA is a powerful cloud-based analogue, digital and mixed-signal circuit simulator, based on the Free and Open Source Software <a href="http://ngspice.sourceforge.net/">Ngspice</a> package.</p>
+<p>As might be expected of an industrial strength simulation tool, EasyEDA comes pre-loaded with an extensive library of spice models, subcircuits and associated symbols. If the part you need is not in the built-in EasyEDA library then it is possible to search for it in user contributed libraries or simply import a standard vendor spice model.</p>
+<p>As in simple schematic capture, symbols for new parts can be created from existing parts, quickly built using the Symbol Wizard or drawn from scratch.</p>
+<p>A common cause of confusion for people new to circuit simulation is that models may not behave quite like real devices so simulation results may not match their experience of a device in a real circuit. Models often do not simulate fault behaviors such as, for example, the excessive current drains that occur when an opamp input or output is pulled above or below the supply rails or when a supply above the absolute maximum - or even a reverse - voltage is applied.</p>
+<p>To avoid some of this confusion, many of the models available in EasyEDA are specially developed to simulate the behavior of real devices.</p>
+<p>DC operating point and DC Transfer function analysis data is presented in simple text form in the Simulation Results window:</p>
+<p><img src="images/image127.png" alt="" /></p>
+<p>DC Sweep plots, time domain waveform from transient analyses and frequency domain plots - including <strong>FFTs</strong> - from <strong>AC analyses</strong> are presented in the WaveForm viewer window. Axis-aware absolute and difference cursor measurements are shown directly in the window with simple point or point and drag operations. Easy point and drag/redrag/double click actions access zoom/zoom-cancel/zoom-reset operations with auto-Y axis scaling synchronized across all of up to three configurable, user defined plot panes:</p>
+<p><img src="images/image98.png" alt="" /></p>
+<p>Simple scripting features of Ngspice allow measurements such as calculating the loop gain and <strong>3dB</strong> bandwidth of an opamp circuit directly from the simulation results:</p>
+<p><img src="images/image91.png" alt="" /></p>
+<p>instead of having to use the cursor, noting the results down and then doing the calculations externally:</p>
+<p><img src="images/image58.png" alt="" /></p>
+<p>Waveform plot data can be exported in <strong>CSV</strong> format for further analysis and manipulation in external programs such as LibreOffice Calc and Scilab, however a particular feature of EasyEDA is that the Waveform window can not only be saved in an EasyEDA Project but that the plots in a saved Waveform window can be viewed and manipulated in exactly the same way as when they first appear as a result of a simulation. This makes it easy to compare the results from several simulations.</p>
+<p></p>
+<p>Once saved in a Project, a Waveform window can be exported as a .pdf, .png or .svg file in your browser window. This can then be saved to your device so it is easy to create professional quality documentation.</p>
+<p>Simulation or “active” schematics can be shared in the same way as non-simulation or “passive” schematics.</p>
+<p>You can also generate a <strong>BOM</strong> Report in the same way as for a passive schematic but this may be of limited use since it will contain non-physical components that are for the simulation only and do not form part of the real design.</p>
+<h2>PCB Design</h2>
+<hr />
+<p>When you are satisfied with your schematic design and simulation results, you can then quickly proceed to produce your finished and populated PCB without leaving EasyEDA.</p>
+<p>EasyEDA’s PCB Design canvas helps you to quickly and easily lay out even complex multilayer designs from schematics you have already created in the Schematic canvas or directly as a layout with no schematic.</p>
+<p>Passing an EasyEDA Schematic into the PCB Design editor is as easy as clicking a button: just click the Convert Project to PCB… PCB icon on the top toolbar!</p>
+<p>EasyEDA has extensive libraries of footprints. You can also build up your own library of unusual and specialized parts by copying and modifying existing parts or  from scratch using EasyEDA’s powerful footprint creation and editing tools.</p>
+<p><img src="images/image04.png" alt="" /></p>
+<p>In a similar way to in the Schematic design canvas, to help you locate items and navigate your way around when working in the PCB Design canvas there is a PCB Design Manager.</p>
+<p><strong>Super Menu &gt; Miscellaneous &gt; Design Manager...</strong></p>
+<p>The PCB Design Manager is a very powerful tool for finding components, tracks (nets) and pads (Net Pads).</p>
+<p>Clicking on any item highlights the component and pans it to the center of the window.</p>
+<p>You can set up layers used in the PCB and their display colours and visibility using</p>
+<p>**Super Menu &gt; Miscellaneous &gt; Layer Options... **</p>
+<p>The active layer and layer visibility can be selected using the Layers Toolbar.</p>
+<p>Default track widths, clearances and via hole dimensions can all be configured in the Design Rule Check dialog which is opened via:</p>
+<p>**Super Menu &gt; Miscellaneous &gt; Design Rule Check... **</p>
+<p>From first setting up the Design Rule Check (<strong>DRC</strong>) at the start of your board layout, running a DRC is almost the last step in checking your PCB design before you generate <strong>Gerber</strong> and <strong>Drill</strong> files for board manufacture ready to place your order for finished a PCB.</p>
+<p>The last step is to check the Gerber and Drill files using an easy to install and use Free and Open Source Software Gerber Viewer, gerbv.</p>
+<p>While you are waiting for your PCB to be delivered, you can create a Bill of Materials (BOM) via:</p>
+<p><strong>Super Menu &gt; Miscellaneous &gt; BOM Report...</strong></p>
+<p>and you can produce professional quality SVG, .png or .pdf output files for your documentation.</p>
+<p>PCB Designs can be shared with colleagues and made public in the same way as Schematics.</p>
+<p>The size of PCB that you can produce using EasyEDA is almost unlimited: designs of over 100cm * 100cm are possible … but you might just need a powerful computer for that.</p>
+<p>EasyEDA supports up to 6 layer PCBs by default but it is capable of handling more, so if you need more layers then please contact us as shown in the section on <a href="#Howtogethelp">How to get Help?</a>.</p>
+<h2>libraries management</h2>
+<p>This is the star feature of this version. Lots of our users complained that EasyEDA provides too few components and that these components were not well organized. Thanks to the Free and Open Source Kicad Libs and some Open Source Eagle libs, EasyEDA now has 100,000+ components, which should be enough for most projects.</p>
+<p>Now you can enjoy using EasyEDA without having to spend so much time hunting for or building schematic symbols and PCB footprints.</p>
+<h2>How to find all those symbols and footprints:</h2>
+<p>At the bottom of the left hand Navigation panel you will find a button with “More Libraries” ,</p>
+<p>Click it, or press the hotkey combination; Shift+F.</p>
+<p><img src="images/latest-upgrade/image01.png" alt="" /></p>
+<p>Then you will see a dialog as shown in the image below.</p>
+<p>Simply type your part number or footprint to Search.</p>
+<p><img src="images/latest-upgrade/image05.png" alt="" /></p>
+<p>Or, click the “Table of contents” to open the categories list to choose your components. For example, when you click on:</p>
+<p><strong>SparkFunLibs  &gt; AnalogIC</strong></p>
+<p>you will find a dialog opens as shown in the image below:</p>
+<p><img src="images/latest-upgrade/image06.png" alt="" /></p>
+<p>From there you can scroll up and down to browse parts in each category.</p>
+<p>Suppose you wanted the find the <strong>MAX232</strong> (which converts signals from an <a href="http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FRS-232&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFt_BArd4HZuR1QqCUxvKGW3ki3UA">RS-232</a>  serial port to signals suitable for use in <a href="http://www.google.com/url?q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTransistor-transistor_logic&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFoI3eJYGc8PWqUdnfqHGREfTZccw">TTL</a>  compatible digital logic circuits). Simply typing <strong>Max232</strong> into the Search and press Enter Search box:</p>
+<p><img src="images/latest-upgrade/image07.png" alt="" /></p>
+<p>When you hover the mouse over the picture of the Schematic symbol or PCB footprint, you will find a toolbar with “ Favorite”, “Place” ,”Edit”, “Report” buttons.</p>
+<p><strong>Favorite</strong>:</p>
+<p>When you find a component which you use frequently, you would be better to Favorite it. This adds it into your Favorite Parts (in the Navigation panel) from where you can place it straight into the editor very easily.</p>
+<p><img src="images/latest-upgrade/image08.png" alt="" /></p>
+<p><strong>Place</strong>:</p>
+<p>For parts you use infrequently, you don’t need to Favorite them; just Place it into your canvas directly.</p>
+<p>Note:</p>
+<ul>
+<li>EasyEDA supports multi-documents so please make sure that you are placing the part into the right (active) document. The active document is the one with the highlighted tab.</li>
+<li>You can’t place a Schematic symbol into a PCB file, or a PCB Footprint into a schematic.</li>
+</ul>
+<p><strong>Edit</strong>:</p>
+<p>If you want to create your own version of a symbol or footprint then you can open an existing part from the library to use as a template, edit it and then save it to your local My Parts library in the Navigation Panel.</p>
+<p><strong>Report</strong>:</p>
+<p>We can’t promise that every component in the library is free of errors so please check all symbols and footprints carefully before you commit to a PCB order.</p>
+<p>If you do find a mistake in a component, please let us kno w so that we can fix it.</p>
+<p>Components with sub parts (multi-device packages).</p>
+<p>When you find a component with sub-parts, you can’t Place or Edit it, but you can Favorite andClone it as your own part, which you can then edit.</p>
+<p><img src="images/latest-upgrade/image09.png" alt="" /></p>
+<p><img src="images/latest-upgrade/image10.png" alt="" /></p>
+<h2>Design Flow using EasyEDA</h2>
+<h2><img src="images/image148.png" alt="" /></h2>
+<h2>Account Management</h2>
+<p>EasyEDA is a web-based service and although you are free to use it in Anonymous mode which you can do without creating an account, you are much better off creating an account to manage your own designs and parts libraries. Creating an account is easy and gives you free access to the full power of EasyEDA for as long as you wish.</p>
+<h3>Join</h3>
+<p>Click on <strong>Join...</strong> the <strong>user management menu:</strong></p>
+<p><img src="images/image106.png" alt="" /></p>
+<p>After clicking on <strong>Join</strong>, a very simple <strong>Create an account</strong> dialog opens.</p>
+<p><img src="images/image80.png" alt="" /></p>
+<p>Just enter a username, invent a password, confirm it and type in an email address. A valid email address is needed so that we can send you a confirmation email before we create your account. This is also the address we will use to contact you with information or any questions about your PCB orders.</p>
+<p>Alternatively, if you have a Google or Yahoo account, you can login in using <a href="http://en.wikipedia.org/wiki/OpenID">http://en.wikipedia.org/wiki/OpenID</a>; it is safe and easy.</p>
+<h3>Login</h3>
+<p><img src="images/image89.png" alt="" /></p>
+<p>You can then enter the username or email and the password that you used to create your account, to login to EasyEDA. If you use a private device, you can check <strong>Remember Me</strong>, so you don’t need to login again after you open EasyEDA.</p>
+<p>At this dialog, you can also login via a Google , Facebook, or Yahoo account.</p>
+<h3>Reset Your Password</h3>
+<p>Your password is encrypted, so EasyEDA team doesn't know it. but you can reset it via your email. Click the <strong>Lost Password</strong> menu and type your email. If you can't get the email after 10 minutes, please send an email to us.
+<img src="images/resetPassword.png" alt="" /></p>
+<h3>User Preferences</h3>
+<p>When EasyEDA shows up the login success popup in the bottom right of the window, your user management menu will be look like this:</p>
+<p><img src="images/image130.png" alt="" /></p>
+<hr />
+<p>Click on <strong>User Preferences</strong>,</p>
+<p><img src="images/image61.png" alt="" /></p>
+<p><strong>Maximum backup level</strong>: every open document can be saved at up to this number of different revisions.</p>
+<p><strong>Auto save (minutes)</strong>: this is the time interval between auto saves of all your open documents.</p>
+<p><strong>Save to Server</strong>: Save your preferences (Toolbar configurations, EasyEDA libs, Hotkey settings, language and so on) to the EasyEDA Server.</p>
+<p><strong>Load from Server</strong>: EasyEDA can’t load your Preferences automatically but once you have saved them, you can load them manually. Then, when you change to a different computer or browser, you can load your preferences from the EasyEDA Server.</p>
+<p>If you have not saved any preferences then <strong>Load from Server</strong> will have no effect.</p>
+<h3>Crash Recovery</h3>
+<p>No operating system, software or network is perfect, so sometimes things can go wrong. Having your Desktop or web browser freeze or your broadband connection drop, two hours into laying out a PCB, could spoil your day.</p>
+<p>However, with EasyEDA, your day will be just fine.</p>
+<p>This is because EasyEDA auto saves and makes backups of all your open files to your computer so crash recovery is built in to EasyEDA.</p>
+<p>In <strong>user management menu</strong>, click on <strong>Crash Recovery</strong>.</p>
+<p><img src="images/image10.png" alt="" /></p>
+<p>Select the file which you would like to <strong>recover</strong>, then click the Recover button; your file will be opened in a new tab.</p>
+<p>Please note: EasyEDA saves these crash recovery files in your computer and not on the EasyEDA server. Therefore you cannot recover files from a crash on one computer or browser by changing to a different computer or browser.</p>
+<h2>Anonymous Files</h2>
+<p>In Anonymous mode anyone can access to all the features of EasyEDA available to registered users but without the need to create an account to save your designs. Everyone can create and save a schematic, spice simulation or PCB file in Anonymous mode into the Anonymous Files folder, which works like <a href="http://pastebin.com/">pastebin.com</a>. So, if you would rather not register, you can still enjoy the full power of EasyEDA using the unrestricted, Anonymous mode.</p>
+<p>Please note: new project folders cannot be created in Anonymous mode.</p>
+<p>All anonymous files are unlisted, so if you don’t share the URL of your anonymous files (accessed by clicking on the Share icon), others cannot see them. By sharing your file URL with others then they can view, modify, save and copy your files.</p>
+<p>Please note: URL sharing in Anonymous mode is not true collaborative working because anyone with the URL of an anonymous file can edit that file at any time, without having to make a copy of it. Therefore, care must be taken to ensure that only one person is editing a file at any time because the last save by anyone editing that file overwrites all previous saves by anyone else editing it.</p>
+<p>The URL of an Anonymous file is the only way that you can find it, so keep a record of the URL of all your Anonymous file if you would like to see them again!</p>
+<p>Registered users can also save files as Anonymous files but EasyEDA recommends that you create a Project and save your files under your project.</p>
+<h2>Prefix Conflict Error</h2>
+<p>Sometime, when you convert project to PCB, open the Design manager or run a simulation, you will get a Prefix Conflict error message.</p>
+<p><img src="images/image138.png" alt="" /></p>
+<p>In this schematic, you will find two components with R4 reference designator, so you just need to change one to Rx where x is a unique number in that schematic.</p>
+<p>It may be tempting to backup a schematic into the same project as the original, however, if an attempt is then made to do Convert Project to PCB, you will get the Prefix Conflict error for every component.</p>
+<p><img src="images/image60.png" alt="" /></p>
+<p>In the above image, you can find the two identical copies of the same schematic, which when you Convert Project to PCB, EasyEDA will try to merge into a single schematic, so every item will have 2 copies. To fix this, you just need to create a backup project and remove - or better still - save backup copies of your schematics to that project.</p>
+<h2>Net Name Conflict Error</h2>
+<p>Sometime, when you convert project to PCB, open the Design manager or run a simulation, you will get a <strong>Net Name Conflict</strong> error message.</p>
+<p><img src="images/netNameConflict.png" alt="" /></p>
+<p>In this schematic, you will find four net label/net flag(EasyEDA takes volprobe, GND VCC as netlabel too) in the same wire, So you must remove the others.</p>
+<p>If you would like to probe a GND, you can use <a href="./spiceSimulation.htm#Probe">Probe command</a></p>
+<h2>Hotkeys</h2>
+<p>After a while using an EDA tool suite, clicking all over the place with a mouse gets very tedious and seriously reduces your productivity. Keyboard shortcuts or Hotkeys avoid much of that. EasyEDA not only provides lots of hotkeys, but also every hotkey can be reconfigured.</p>
+<p>Under the Config toolbar:</p>
+<p><img src="images/image134.png" alt="" /></p>
+<p>click the Hotkeys Setting... menu which will open the Hotkey Setting dialog.</p>
+<p><img src="images/image100.png" alt="" /></p>
+<p>To change a Hotkey, click anywhere in the row for the hotkey you want to change and then press your new key.</p>
+<p>For example, if you want to use R as Rotate selected objects, click on the first row, then press <code>R</code>.</p>
+<p>After you change the hotkey, don’t forget to click Save Changes button.</p>
+<p>The <strong>docType</strong> column describes which type of EasyEDA document each hotkey applies to. <strong>docType</strong> has three types:</p>
+<ul>
+<li><strong>ALL</strong>: any document type in EasyEDA.</li>
+<li><strong>SCH</strong>: schematic and schematic libs</li>
+<li><strong>PCB</strong>: PCB and PCB libs.</li>
+</ul>
+<p>The functions of some hotkeys may change between docTypes. For example, C, which draws an Arc in SCH, but draws a circle in PCB.</p>
+<p>A list of all the available hotkeys is given below.</p>
+<table>
+   <tr>
+      <td>ID</td>
+      <td>docType</td>
+      <td>shortcut</td>
+      <td>function</td>
+   </tr>
+   <tr>
+      <td>0</td>
+      <td>ALL</td>
+      <td>Space</td>
+      <td>Rotate selected objects</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>ALL</td>
+      <td>Left</td>
+      <td>Scroll Or Move selected left</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>ALL</td>
+      <td>Right</td>
+      <td>Scroll or Move selected right</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>ALL</td>
+      <td>Up</td>
+      <td>Scroll or Move selected up</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>ALL</td>
+      <td>Down</td>
+      <td>Scroll or Move selected down</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>ALL</td>
+      <td>Ctrl+X</td>
+      <td>Cut</td>
+   </tr>
+   <tr>
+      <td>6</td>
+      <td>ALL</td>
+      <td>Ctrl+C</td>
+      <td>Copy</td>
+   </tr>
+   <tr>
+      <td>7</td>
+      <td>ALL</td>
+      <td>Ctrl+V</td>
+      <td>Paste</td>
+   </tr>
+   <tr>
+      <td>8</td>
+      <td>ALL</td>
+      <td>Ctrl+Shift+V</td>
+      <td>Cross Document Paste</td>
+   </tr>
+   <tr>
+      <td>9</td>
+      <td>ALL</td>
+      <td>Delete</td>
+      <td>Delete Selected</td>
+   </tr>
+   <tr>
+      <td>10</td>
+      <td>ALL</td>
+      <td>Ctrl+A</td>
+      <td>Select All</td>
+   </tr>
+   <tr>
+      <td>11</td>
+      <td>ALL</td>
+      <td>Esc</td>
+      <td>Cancel current drawing</td>
+   </tr>
+   <tr>
+      <td>12</td>
+      <td>ALL</td>
+      <td>Ctrl+Z</td>
+      <td>Undo</td>
+   </tr>
+   <tr>
+      <td>13</td>
+      <td>ALL</td>
+      <td>Ctrl+Y</td>
+      <td>Redo</td>
+   </tr>
+   <tr>
+      <td>14</td>
+      <td>ALL</td>
+      <td>Ctrl+S</td>
+      <td>Save</td>
+   </tr>
+   <tr>
+      <td>15</td>
+      <td>ALL</td>
+      <td>A</td>
+      <td>Zoom In</td>
+   </tr>
+   <tr>
+      <td>16</td>
+      <td>ALL</td>
+      <td>Z</td>
+      <td>Zoom Out</td>
+   </tr>
+   <tr>
+      <td>17</td>
+      <td>ALL</td>
+      <td>X</td>
+      <td>Flip Horizontal</td>
+   </tr>
+   <tr>
+      <td>18</td>
+      <td>ALL</td>
+      <td>Y</td>
+      <td>Flip Vertical</td>
+   </tr>
+   <tr>
+      <td>19</td>
+      <td>ALL</td>
+      <td>G</td>
+      <td>Snap</td>
+   </tr>
+   <tr>
+      <td>20</td>
+      <td>ALL</td>
+      <td>Ctrl+F</td>
+      <td>Find Component</td>
+   </tr>
+   <tr>
+      <td>21</td>
+      <td>ALL</td>
+      <td>Ctrl+D</td>
+      <td>Design Manager</td>
+   </tr>
+   <tr>
+      <td>22</td>
+      <td>ALL</td>
+      <td>D</td>
+      <td>Drag Tool</td>
+   </tr>
+   <tr>
+      <td>23</td>
+      <td>SCH</td>
+      <td>W</td>
+      <td>Draw Wire</td>
+   </tr>
+   <tr>
+      <td>24</td>
+      <td>SCH</td>
+      <td>B</td>
+      <td>Draw Bus</td>
+   </tr>
+   <tr>
+      <td>25</td>
+      <td>SCH</td>
+      <td>U</td>
+      <td>Bus Entry</td>
+   </tr>
+   <tr>
+      <td>26</td>
+      <td>SCH</td>
+      <td>N</td>
+      <td>NetLabel</td>
+   </tr>
+   <tr>
+      <td>27</td>
+      <td>SCH</td>
+      <td>Ctrl+Q</td>
+      <td>NetFlag VCC</td>
+   </tr>
+   <tr>
+      <td>28</td>
+      <td>SCH</td>
+      <td>Ctrl+G</td>
+      <td>NetFlag GND</td>
+   </tr>
+   <tr>
+      <td>29</td>
+      <td>SCH</td>
+      <td>P</td>
+      <td>Place Pin</td>
+   </tr>
+   <tr>
+      <td>30</td>
+      <td>SCH</td>
+      <td>L</td>
+      <td>Draw Polyline</td>
+   </tr>
+   <tr>
+      <td>31</td>
+      <td>SCH</td>
+      <td>O</td>
+      <td>Draw Polygon</td>
+   </tr>
+   <tr>
+      <td>32</td>
+      <td>SCH</td>
+      <td>Q</td>
+      <td>Draw Bezier</td>
+   </tr>
+   <tr>
+      <td>33</td>
+      <td>SCH</td>
+      <td>C</td>
+      <td>Draw Arc</td>
+   </tr>
+   <tr>
+      <td>34</td>
+      <td>SCH</td>
+      <td>S</td>
+      <td>Draw Rect</td>
+   </tr>
+   <tr>
+      <td>35</td>
+      <td>SCH</td>
+      <td>E</td>
+      <td>Draw Ellipse</td>
+   </tr>
+   <tr>
+      <td>36</td>
+      <td>SCH</td>
+      <td>F</td>
+      <td>Freehand Draw</td>
+   </tr>
+   <tr>
+      <td>37</td>
+      <td>SCH</td>
+      <td>T</td>
+      <td>Draw Text</td>
+   </tr>
+   <tr>
+      <td>38</td>
+      <td>SCH</td>
+      <td>I</td>
+      <td>Edit Selected Symbol</td>
+   </tr>
+   <tr>
+      <td>39</td>
+      <td>SCH</td>
+      <td>Ctrl+R</td>
+      <td>Run the Document</td>
+   </tr>
+   <tr>
+      <td>40</td>
+      <td>PCB</td>
+      <td>W</td>
+      <td>Draw Track</td>
+   </tr>
+   <tr>
+      <td>41</td>
+      <td>PCB</td>
+      <td>U</td>
+      <td>Draw Arc</td>
+   </tr>
+   <tr>
+      <td>42</td>
+      <td>PCB</td>
+      <td>C</td>
+      <td>Draw Circle</td>
+   </tr>
+   <tr>
+      <td>43</td>
+      <td>PCB</td>
+      <td>N</td>
+      <td>Draw Dimension</td>
+   </tr>
+   <tr>
+      <td>44</td>
+      <td>PCB</td>
+      <td>S</td>
+      <td>Draw Text</td>
+   </tr>
+   <tr>
+      <td>45</td>
+      <td>PCB</td>
+      <td>O</td>
+      <td>Draw Connect</td>
+   </tr>
+   <tr>
+      <td>46</td>
+      <td>PCB</td>
+      <td>E</td>
+      <td>Draw copperArea</td>
+   </tr>
+   <tr>
+      <td>47</td>
+      <td>PCB</td>
+      <td>T</td>
+      <td>Change To TopLayer</td>
+   </tr>
+   <tr>
+      <td>48</td>
+      <td>PCB</td>
+      <td>B</td>
+      <td>Change To BottomLayer</td>
+   </tr>
+   <tr>
+      <td>49</td>
+      <td>PCB</td>
+      <td>1</td>
+      <td>Change To Inner1</td>
+   </tr>
+   <tr>
+      <td>50</td>
+      <td>PCB</td>
+      <td>2</td>
+      <td>Change To Inner2</td>
+   </tr>
+   <tr>
+      <td>51</td>
+      <td>PCB</td>
+      <td>3</td>
+      <td>Change To Inner3</td>
+   </tr>
+   <tr>
+      <td>52</td>
+      <td>PCB</td>
+      <td>4</td>
+      <td>Change To Inner4</td>
+   </tr>
+   <tr>
+      <td>53</td>
+      <td>PCB</td>
+      <td>P</td>
+      <td>Place Pad</td>
+   </tr>
+   <tr>
+      <td>54</td>
+      <td>PCB</td>
+      <td>V</td>
+      <td>Place Via</td>
+   </tr>
+   <tr>
+      <td>55</td>
+      <td>PCB</td>
+      <td>M</td>
+      <td>Measure</td>
+   </tr>
+   <tr>
+      <td>56</td>
+      <td>PCB</td>
+      <td>L</td>
+      <td>Change Route Angle</td>
+   </tr>
+   <tr>
+      <td>57</td>
+      <td>PCB</td>
+      <td>-</td>
+      <td>Decrease Routing Width</td>
+   </tr>
+   <tr>
+      <td>58</td>
+      <td>PCB</td>
+      <td>+</td>
+      <td>Increase Routing Width</td>
+   </tr>
+   <tr>
+      <td>59</td>
+      <td>PCB</td>
+      <td>Alt+-</td>
+      <td>Decrease Snap Size</td>
+   </tr>
+   <tr>
+      <td>60</td>
+      <td>PCB</td>
+      <td>Alt++</td>
+      <td>Increase Snap Size</td>
+   </tr>
+   <tr>
+      <td>61</td>
+      <td>PCB</td>
+      <td>H</td>
+      <td>Highlight Net</td>
+   </tr>
+   <tr>
+      <td>62</td>
+      <td>PCB</td>
+      <td>Shift+M</td>
+      <td>Remove All Copper Area</td>
+   </tr>
+   <tr>
+      <td>63</td>
+      <td>PCB</td>
+      <td>Shift+B</td>
+      <td>Rebuild All Copper Area</td>
+   </tr>
+</table>
+<h2>Basic Driving Skills.</h2>
+<p>To use EasyEDA, you need to be familiar with a few basic terms and concepts. The best way to learn them is to open up EasyEDA, open a new schematic:</p>
+<p>**Document &gt; New &gt; Schematic **</p>
+<p>and play!</p>
+<h3>1. Left clicking</h3>
+<p>Similar to other EDA software:</p>
+<ul>
+<li>Click on an item to select;</li>
+<li>If over a selected item, click and hold to drag a selected item</li>
+<li>If not over a selected item, click and hold creates a selection box;</li>
+<li>Creating a selection box, using click and drag to the right, selects everything inside the box;</li>
+<li>Creating a selection box, using click and drag to the left, selects everything inside and intersected by the box;</li>
+<li>Double click on a text area to edit;</li>
+<li>The exact left click usage depends on what item is being selected and in what Canvas the item exists (Schematic or PCB).</li>
+</ul>
+<h3>2. Right clicking</h3>
+<p>EasyEDA does not support right click context menus in the Schematic or PCB Canvas. Instead, right clicking executes a context sensitive command:</p>
+<ul>
+<li>when you are placing a symbol, after a right click, the active symbol will be removed;</li>
+<li>when you are drawing a shape such as a polyline, after a right click, the polyline will be stopped at the place where you right click but the mouse will remain as a <strong>cross</strong>, so you can draw another shape;</li>
+<li>to get out of the current active context sensitive command such as  placement or drawing mode and go back to <strong>select mode</strong>, just double right click.</li>
+</ul>
+<p><strong>Ctrl+Right</strong> click anywhere in the Schematic, waveForm or PCB Canvas drags the canvas around within the EasyEDA window.</p>
+<h3>3. ESC key</h3>
+<p>Pressing the <code>ESC</code> key ends the current drawing action but does not exit the current active context sensitive command mode (i.e. it does not return the cursor to select mode).</p>
+<h3>4. Select more shapes</h3>
+<ul>
+<li>Ctrl+left click items adds those items to your selection;</li>
+<li>Click and hold creates a selection box;</li>
+<li>Creating a selection box, using click and drag to the right, selects everything inside the box;</li>
+<li>Creating a selection box, using click and drag to the left, selects everything inside and intersected by the box;</li>
+</ul>
+<h3>5. Zoom in and Zoom out</h3>
+<ul>
+<li>Using the middle mouse button:</li>
+<li>Roll forward to zoom in;</li>
+<li>Roll back to zoom out;</li>
+<li>Using hotkeys, the default hotkey <code>A</code> for zoom in, <code>Z</code> for zoom out.</li>
+</ul>
+<p></p>
+<p>Please note: do not roll your mouse at the same time as pressing the CTRL key. Some browsers will zoom the whole site, not just the canvas in the EasyEDA window. If this happens, just press <code>Ctrl+0</code> to reset the browser zoom.</p>
+<h3>6. Double clicks</h3>
+<p>Double clicking any text area opens a resizable text box to allow you edit the text inline.</p>
+<p><img src="images/image54.png" alt="" /></p>
+<p>Press enter to create new line. Click outside the text box to close it.</p>
+<h3>7. Pan</h3>
+<ul>
+<li>Right click anywhere in the Schematic, WaveForm or PCB Canvas and Hold down right button to drags the canvas around within the EasyEDA window.</li>
+<li>If your canvas is bigger than the EasyEDA window and is showing scroll bars, you can use either the scroll bars or the Arrow keys to scroll the canvas to pan.</li>
+<li>When drawing a wire, a graphic line or shape that you wish to extend beyond the edge of the EasyEDA window holding down the left mouse button after starting the line will pan the canvas to keep the drawn item inside the window.</li>
+</ul>
+<h3>Project concept</h3>
+<p>The Project concept is important in EasyEDA because it is the foundation of how to organise your designs.</p>
+<p>After login, you can create a new project:</p>
+<p><strong>Document &gt; New &gt; Project</strong></p>
+<p><img src="images/image00.png" alt="" /></p>
+<p>Give it a title: this will show in the project tree in the left hand panel.</p>
+<p>You can make your project public or private by setting it’s Visibility.</p>
+<p>If you choose to make you project Public, Categories allows you to select which category you want your project to be listed under on our website. If you keep your project private then the category is still applied but has no direct use in sorting your projects because this field is not searched in the Filter box in the left hand panel.</p>
+<p>Adding a short description helps you and anyone you are sharing this project with, understand what the project is about.</p>
+<p>Once created, to modify your project, right click on it in the project tree in the left hand panel,</p>
+<p><img src="images/image93.png" alt="" /></p>
+<p>then click Modify:</p>
+<p><img src="images/image95.png" alt="" /></p>
+<p>From here, your can change the Visibility, allow other people to comment on your project and type a more detailed description of the project content. To help you make your project stand out or to maybe simply to make a detailed description of your project easier to read, you can use Markdown syntax. If you need more information on Markdown syntax, click on Markdown Syntax? just above the Content box.</p>
+<h3>Rotate</h3>
+<p>After selecting one or more items, you can rotate the selected items using:</p>
+<p>Rotate and Flip &gt; Rotate Left or Rotate Right</p>
+<p>from the toolbar or by pressing the default rotate hotkey:<code>Space</code>.</p>
+<p><img src="images/image45.png" alt="" /></p>
+<p>Please note that rotating a multiple selection rotates each item about its own symbol origin. It does not rotate the items about the centroid of the group of items.</p>
+<h3>Flip</h3>
+<p>To place a Q2 as shown in the schematic below you need to Flip the item.</p>
+<p><img src="images/image68.png" alt="" /></p>
+<p>You can Flip one or more selected items using:</p>
+<p>Rotate and Flip &gt; Flip Horizontal or Flip Vertical</p>
+<p>from the toolbar or by pressing the default flip hotkeys: <code>X</code> to Flip Horizontal, <code>Y</code> to Flip Vertical.</p>
+<h3>Bring to Front and Send to Back</h3>
+<p>In the image below, both the rectangle and the ellipse are filled.</p>
+<p><img src="images/image133.png" alt="" /></p>
+<p>If you draw the ellipse before drawing the rectangle, the rectangle will overlap and therefore hide the ellipse. To reveal the ellipse, select the rectangle and then use:</p>
+<p><strong>Align &gt; Send to Back</strong></p>
+<p>from the toolbar.</p>
+<p>To bring the rectangle to the front again, you could select it and use:</p>
+<p><strong>Align &gt; Bring to Front</strong></p>
+<p>or select the ellipse and then use:</p>
+<p><strong>Align &gt; Send to Back</strong></p>
+<h3>Add Images to EasyEDA</h3>
+<p>When you select Image from the Drawing Tools palette, an image placeholder will be inserted into the canvas:</p>
+<p><img src="images/image27.png" alt="" /></p>
+<p>Select the placeholder, so you can see the image’s attributes in the right hand Properties panel:</p>
+<p><img src="images/image62.png" alt="" /></p>
+<p>Set Href to the link to your image. For example, setting Href to:</p>
+<p><a href="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/555_Pinout.svg/220px-555_Pinout.svg.png">http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/555_Pinout.svg/220px-555_Pinout.svg.png</a></p>
+<p>will make your image look like this:</p>
+<p><img src="images/image28.png" alt="" /></p>
+<p>Please note: at present, EasyEDA cannot host images, so you need to upload your images to an image sharing site such as <a href="http://www.imgur.com">http://www.imgur.com</a>.</p>
+<h3>Saving Your Work Locally</h3>
+<p>Although EasyEDA saves all your files on our Server, sometimes you may want to save your work locally and EasyEDA provides a hack way to do this.</p>
+<p>**Document &gt; EasyEDA source **</p>
+<p>or</p>
+<p><strong>Super menu &gt; File &gt; EasyEDA source</strong></p>
+<p>You will find a dialog like this:</p>
+<p><img src="images/image104.png" alt="" /></p>
+<p>Copy the contents of this EasyEDA source into any text editor, then save the file. You can paste the text back into this box and click Apply to update the display. if you have made no changes to the text then the canvas will show your file exactly as if it was saved and reopened from the EasyEDA server.</p>
+<p>This is a good way to share/backup your works. Your file doesn’t need to be saved to EasyEDA’s server. It can be highly compressed in any readily available format such as such as zip or 7z. It can be emailed to anyone who can then open it in EasyEDA without worrying if they have the same libraries as you.</p>
+<h3>EasyEDA Source</h3>
+<p>EasyEDA Source is a <strong>JSON</strong> file which can be read by many other programs. Please see:</p>
+<p><a href="http://en.wikipedia.org/wiki/JSON">http://en.wikipedia.org/wiki/JSON</a></p>
+<p>for more information.</p>
+<p>The open EasyEDA Source file allows you to work on files at a text level which enables some powerful ways to manipulate schematic and spice files and symbols as well as PCB files and footprints.</p>
+<p>EasyEDA team will provide more details of the EasyEDA Source soon to show how you can edit and even create drawings, schematics, symbols, footprints and PCB layouts in EasyEDA Source. It is also possible to copy and edit symbols straight out of a Schematic and save them as new Schematic Lib or Spice Symbols and even to create a new Spice Subckt from a Schematic.</p>
+<h2>The Clean EasyEDA UI</h2>
+<p><img src="images/image01.png" alt="" /></p>
+<h3>Resizing the canvas area</h3>
+<p>Hovering the mouse cursor over the areas indicated by the three green ellipses will bring up blue toolbar toggle arcs. Clicking on them will toggle the visibility of their associated top, right and left toolbar areas to expand the canvas area. The left hand arc can also be dragged horizontally to resize the left hand panel.</p>
+<h3>1. Filter</h3>
+<p>Using the Filter, you can  quickly and easily find projects, files, parts and footprints from anything listed in the left hand panel, just by typing a few letters of the title. For example, if you want to find all files containing “NE555” in the title, just type “555”, it is non-case-sensitive.</p>
+<p>Filter only searches project, file and part titles and names. It does not search the Description and Content fields.</p>
+<p>Click the X to clear the filter.</p>
+<h3>2. Navigation List</h3>
+<p>The Navigation List is very important for EasyEDA: it is from here that you can find all your projects, files, parts and footprints.</p>
+<p>In particular, in EasyEDA Libs, you will find lots of components complete with simulation models, many of which have been developed for EasyEDA to make your simulation experience easier.</p>
+<p>The System IC libraries contain schematic symbols and PCB footprints for many readily available components and projects.</p>
+<p><img src="images/image158.png" alt="" /></p>
+<p>Except for System IC, these options have a content menu. For example, if you drop down to My Projects and right click an item, you will get a tree menu like :</p>
+<p><img src="images/image33.png" alt="" /></p>
+<h3>3. ToolBar</h3>
+<p><img src="images/image44.png" alt="" /></p>
+<p>EasyEDA’s toolbar can be reconfigured via Common Buttons Setting…</p>
+<p><img src="images/image38.png" alt="" /></p>
+<p>The configure dialog is also easy to use:</p>
+<p><img src="images/image63.png" alt="" /></p>
+<p>Click on a button to select it. Then you can toggle button visibility by clicking on Show/Hide or by clicking on the tick space to the the left of the button icon. You can change the button position using Move up and Move Down.</p>
+<p>Many of the buttons have been assigned with hotkeys, so you can use those to replace the button actions.</p>
+<h3>4. Preview Dialog</h3>
+<p>The Preview dialog will help you choose components and packages and can help to to identify schematics and PCB layouts.</p>
+<p>The Preview Dialog has a resizing handle in the bottom right corner.</p>
+<p>The Preview Dialog can’t be closed but double clicking on the top banner will roll up the panel. Double clicking again toggles it back to the selected size.</p>
+<p><a href="https://easyeda.com/bbs_view_830.htm"></a></p>
+<p><img src="images/image159.png" alt="" /></p>
+<p><a href="https://easyeda.com/bbs_view_830.htm"></a></p>
+<p>Clicking on the little green pencil edit tool opens the item in the preview for editing. Clicking on the blue arrow place tool in the top right corner of the preview dialog places the item onto the canvas. Placement is document type sensitive and will warn you if, for example, you try to place PCB footprint into a schematic.</p>
+<h3>5. Wiring Tools</h3>
+<p><img src="images/image05.png" alt="" /></p>
+<p>Tools are document type sensitive: different document types have different tools.</p>
+<p>If you have hidden your tools , you can open them from here:</p>
+<p><img src="images/image74.png" alt="" /></p>
+<p>All of the commands in Wiring Tools are electronics related. Don’t use a wire when you just need to draw a line, shape or an arrow: use Drawing Tools instead.</p>
+<h3>6. User management menu</h3>
+<p><img src="images/image85.png" alt="" /></p>
+<h3>7. Super menu</h3>
+<p>All EasyEDA’s menus can be found at here. Most of the time, we hope you can access these options via the Hotkeys or from the top toolbar but if you find that you use some of the more specialised options from this menu frequently then may want to set them as you own hotkeys.</p>
+<p><img src="images/image32.png" alt="" /></p>
+<h3>8. Drawing Tools</h3>
+<p><img src="images/image02.png" alt="" /></p>
+<p>To keep EasyEDA’s UI clean and sharp, the Wiring and Drawing tools palettes can be resized horizontally, rolled up or hidden so if you want to focus on drawing, you can roll up or hide the others to make more space and reduce the clutter.</p>
+<h3>9. Canvas Attributes</h3>
+<p>You can find the canvas Properties setting by clicking on any the blank space in the canvas.</p>
+<p><img src="images/image19.png" alt="" /></p>
+<p>Background and grid colours and the style, size, visibility and snap attributes of the grid can all be configured.</p>
+<p>The canvas area can be set directly by the Width and Height or preset frame sizes are available.</p>
+<h3>10. Canvas</h3>
+<p>This where it all happens! This the area where you create and edit your schematics, PCB layouts, symbols, footprints and other drawings, run simulations and display WaveForm traces.</p>
+<p><img src="images/image128.png" alt="" /></p>
+<p><img src="images/image21.png" alt="" /></p>
+<p><img src="images/image116.png" alt="" /></p>
+<p><img src="images/image87.png" alt="" /></p>
+<p><img src="images/image90.png" alt="" /></p>
+<p><img src="images/image11.png" alt="" /></p>
+<p><img src="images/image36.png" alt="" /></p>
+<h2>How to upgrade to the latest version of EasyEDA</h2>
+<p>You really don’t need to know how to upgrade EasyEDA, because EasyEDA can seamlessly upgrade itself. However,EasyEDA uses an App Cache technique to allow you to use EasyEDA offline (<a href="http://dev.w3.org/html5/offline-webapps/">W3C HTML5 Offline Web Applications</a> which may delay the automatic upgrading process.  Therefore, if you want toupgrade to the latest version immediately, you can follow bellow two simply steps.</p>
+<ol>
+<li>
+<p>Check the About... dialog;</p>
+</li>
+<li>
+<p>If the Built Date is older than 03/25/2015:</p>
+</li>
+</ol>
+<p>Close your browser open EasyEDA again.</p>
+<p>If the Built Date is still showing older than 03/25/2015:</p>
+<p>Close your browser and open EasyEDA again.</p>
+<p>If the Built Date is at or newer than 03/25/2015, you don’t need to do anything.
+Note <strong>03/25/2015</strong> is just an example
+If those two steps can't work, you may need to .</p>
+<p><strong>1.Mozilla Firefox</strong></p>
+<ul>
+<li>Go to “Preferences… &gt; Advanced &gt; Network &gt; Offline Storage”</li>
+<li>Click on “Clear now”</li>
+<li>reload easyeda again.</li>
+</ul>
+<p><img src="images/remove_firefox_cache.png" alt="" /></p>
+<p><strong>2.Chrome</strong></p>
+<ul>
+<li>Open the following URL: chrome://appcache-internals/</li>
+<li>Look for easyeda.com and click “Remove”</li>
+<li>reload easyeda again.</li>
+</ul>
+<p><img src="images/remove_chrome_cache.png" alt="" /></p>
+<p>Please email to <img src="https://easyeda.com/edaImg/blog/2013/03/email.png" alt="" /> when you need any help.</p>
+<h2>How to get help?</h2>
+<p>It is easy to ask for help for any aspect of EasyEDA: just click on Asking for help then complete and Submit the Support request:</p>
+<p><img src="images/image152.png" alt="" /></p>
+<p>Please ask your questions in English or Chinese and don’t worry if your English is not good! (Or your Chinese!)</p>
+<ol>
+<li>You can also ask your questions directly in the <a href="https://easyeda.com/bbs_lists_2.htm">EasyEDA forum</a>. We will try to respond to every post but please be patient. Maybe EasyEDA team is in a different timezone and we are a quite bit busy, so you may need to wait for a while.</li>
+<li>If you don’t want your help requests to be public then you can drop us an email to <a href="mailto:support@easyeda.com">support@easyeda.com</a></li>
+<li>If maybe you have a design that you know worked in some other EDA package and you are having problems importing it to EasyEDA, let us know and we will take a look and try to help you to fix them.</li>
+</ol>
+<p>The easiest way to do this is to open Access Control for your Project and Add User <a href="mailto:support@easyeda.com">support@easyeda.com</a> as a user with Read/Write permissions:</p>
+<p><img src="images/image153.png" alt="" /></p>
+<p>Please note that EasyEDA team may not have the time or resources to help you fix all your problems; we may just be able to help you to fix problems commonly encountered by newbies, such as using a drawing polyline in place of a wire, finding a spice model for a simulation or selecting the right PCB footprint.</p>
+<p><a href="#ftnt_ref1">[1]</a> Please note that although some browsers or plug-ins allow you to use gestures, EasyEDA does not work with gestures, so you should disable this function.</p>
+<p><a href="#ftnt_ref2">[2]</a> Simultaneous editing is not yet fully supported: care must be taken because the last save by any collaborator overwrites all previous saves.</p>
+<p><a href="#ftnt_ref3">[3]</a> It can also find the value text but it cannot step through multiple components with the same value.</p>
+<p><a href="#ftnt_ref4">[4]</a> Take a few moments to think about your username because this is the name that other users will see on your designs and posts if you choose to share them or make them public. Once you have created an account, you cannot change your username.</p>
+<p><a href="#ftnt_ref5">[5]</a> You can use upper and lower case letters, numbers and symbols to make a strong password but don’t forget that the password entry is case sensitive.</p>
+<p><a href="#ftnt_ref6">[6]</a> except ordering of PCBs directly from EasyEDA.</p>
+<p><a href="#ftnt_ref7">[7]</a> If you always open EasyEDA in the same browser on the same machine, your Anonymous files will appear under the Anonymous Files folder in the left hand panel but you should not rely on this as a way of keeping track of Anonymous files.</p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

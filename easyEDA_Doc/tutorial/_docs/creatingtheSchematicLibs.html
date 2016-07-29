@@ -1,0 +1,486 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="" href="API.html">API</a></li>
+<li><a class="" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="active" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <h1>Creating the Schematic Libs</h1>
+<iframe width="920" height="540" src="//www.youtube.com/embed/U3MQKcKEV9s" frameborder="0" allowfullscreen></iframe>
+Using **Symbol Wizard** and **Group/Ungroup...** are a quick way to create schematic symbols but they are placed directly into the schematic that they are built in. It is possible to reuse them by copying them (`CTRL+C` hotkeys) from the schematic they were created in and then cross-document-pasting them (`CTRL+SHIFT+V` hotkeys) into a different schematic but this quickly gets messy if you need to copy symbols that were created in several different schematics. OK, you could keep copying new symbols into a dedicated “symbol library” schematic sheet to save searching for them but EasyEDA offers you an easier way to create and manage your symbols in a library.
+<p>Start a new Schematic Lib as shown below or by doing:</p>
+<p><strong>Document &gt; New &gt; Schematic Lib</strong></p>
+<p><img src="images/image84.png" alt="" /></p>
+<p>This opens the New Schematic Lib symbol editor.</p>
+<p>You can now create a symbol using Symbol Wizard as before or draw it using the Drawing Tools palette and add pins using the <code>P</code> hotkey (except that you no longer need to use <strong>Group/Ungroup...</strong>).</p>
+<p>Then you can edit the pin map using:</p>
+<p>Super menu &gt; Miscellaneous &gt; Pin Map...</p>
+<p>Note the Origin Point. To simplify rotating and flipping your symbols when they are placed into a schematic, make sure all of your symbols are created as near as possible centered around that point.</p>
+<h2>Pins</h2>
+<p>Symbols pins are the most import part of any Schematic Lib symbol. They are the things that allow wires to be attached to symbols to connect up your circuit.</p>
+<p>You can use the <strong>P</strong> hotkey to add a Pin or from the toolbar:</p>
+<p><img src="images/image115.png" alt="" /></p>
+<p>Before placing it on the canvas, you can use the rotation hotkey or rotate and flip from the menu to rotate it to the right orientation. Make sure the <strong>pindot (black dot)</strong> is in the right position. The <strong>pindot</strong> will be used to connect your wires or netlabels. Whenever a PIN is either placed as directly onto the canvas or as part of a symbol, the mouse has to point to the <strong>Pindot</strong> position to automatically start the Wire mode or to join a wire to it.</p>
+<p><img src="images/image70.png" alt="" /></p>
+<p>Whenever a Pin is placed as part of a symbol, the <strong>Pindot</strong> should be <strong>outside</strong> of - and pointing away from - the symbol like example 1 of the image below and not on, inside or pointing towards the symbol as shown in example 2.</p>
+<p><img src="images/image13.png" alt="" /></p>
+<p>When you select a single Pin, the <strong>Pin attributes</strong> will be shown in the right hand <strong>Properties</strong> panel:</p>
+<p><img src="images/image73.png" alt="" /></p>
+<p><strong>Orientation</strong>: 0°,90°, 180° and 270°.</p>
+<p><strong>Start-X and Start-Y</strong>: The pindot position. Sometimes it may be difficult to move the pin to the desired position using the mouse, so you can move the pin via Start-X and Start-Y.</p>
+<p><strong>Length</strong>: Pin length.</p>
+<p><strong>Name</strong>: In this example, VCC is the name of the Pin.</p>
+<p><strong>Number</strong>: In this example, 5 is the number of the Pin. This number is the pin number of the device in a physical package and so will be the pin number used in the device footprint for that device in that package in your PCB lib.</p>
+<p>Note that you can use alphanumeric identifiers such as; A1, B1, C1, A2, B2 and so on as the Number.</p>
+<p><strong>Spice Pin order</strong>: These are the pin numbers used to connect your symbol to the corresponding pins defined by the .model or .subckt used to simulate your device. The pin numbers of the simulation model may be different from the physical package pin numbers and - unless the model is specifically created to model multiple devices in a single package - do not change for different instances of a device in a multi-device package. The Spice Pin order must be <strong>numerals</strong> only.</p>
+<p>For more information about Spice Pin order please see the section on <a href="#h.6wq6zcyvmxud">Schematic symbols: prefixes and pin numbers</a>.</p>
+<p><strong>Name Display</strong>: If you don’t want to show VCC, switch it to NO.</p>
+<p><strong>Number Display</strong>: If you don’t want to show 5, switch it to NO.</p>
+<p>You can adjust the Name or Number position using your mouse but note that rotate and flip applies to the whole pin including the name and pin number; these items cannot be rotated and flipped independently of the pin itself.</p>
+<p>Note also that rotate and flip actions do not result in upside down or mirrored pin number or names.</p>
+<p><strong>Color</strong>: You can set the Pin to different colours, such as VCC as red and GND as black. In this example, the PIN is set as blue, but it shows as red, because it is selected. After deselecting it, the pin will appear blue.</p>
+<p><strong>Dot</strong>: adds a circle to the inside end of the pin to indicate logical (or analogue) inversion.</p>
+<p><strong>Clk</strong>: adds a &lt; to the inside end of the pin to indicate that the pin is logical clock input.</p>
+<p><strong>Show</strong>: YES/NO. Allows you to hide the pin. When set it to NO, this Pin will be hidden when the symbol is placed on the schematic editor canvas.</p>
+<p>Note that the pin is not hidden here is in the Schematic Lib symbol editor canvas because if it was, it would disappear from view and so how would you find it to make it visible again? For the same reason this option has no effect in symbols made using Group/Ungroup…</p>
+<p><em>We may not have thought of everything in EasyEDA but we do try   :)</em></p>
+<p><strong>Electric</strong>: [Undefined, Input, Output, I/O, Power]</p>
+<p>EasyEDA doesn’t provide Electrical Rules Checking (ERC) right now but this is a feature to be introduced soon.</p>
+<p>If you set the PIN as Power and set the pin to be hidden, then the Pin will be connected by Name which is the NetLabel. If the Name is VCC, it will be connected the net in your circuit with the NetLabel or NetFlag VCC. This is helps to in keep the schematic clear and uncluttered when using Multi-part Components.</p>
+<p>After created the Lib, use <code>CTRL+S</code> to open the save dialog:</p>
+<p><img src="images/image07.png" alt="" /></p>
+<p>After clicking <strong>Save</strong>, you will see it appears in <strong>My Parts</strong> section of the left hand panel Navigation List:</p>
+<p><img src="images/image105.png" alt="" /></p>
+<p>Don’t forget to use Filter to locate your parts easily.</p>
+<h2>Subparts</h2>
+<p>We have already touched on how EasyEDA can support <strong>Multi-part Components</strong>  but how do you create <strong>multi-part components</strong>?</p>
+<p>EasyEDA provides a sub parts facility to do this.</p>
+<p>After creating a part, you can right click the part in the My Parts section to pop up the content menu.</p>
+<p>Suppose you have created your own symbol for a 74HCT04 hex inverter.</p>
+<p><img src="images/image92.png" alt="" /></p>
+<p>Click** Add sub part ** and that will add 74HCT04.<strong>1</strong>. Click again tol add 74HCT04.<strong>2</strong>, up to 74HCT04.<strong>6</strong>.</p>
+<p>Then double click on each sub part in turn to modify the Pin Name and Number attributes.</p>
+<p>Easy or what?</p>
+<h2>Custom Attributes</h2>
+<p>In the Schematic Lib editor’s canvas Properties panel, you will find a <strong>Custom Attributes</strong> section:</p>
+<p><img src="images/image123.png" alt="" /></p>
+<h3>Assign Package</h3>
+<p>If you would like to built a PCB, you need to assign a package for your schematic Lib symbol. Although there are other ways to do this in EasyEDA, here is the right place to do it.</p>
+<p>Click in the <strong>Package</strong> input box and the same <strong>Update the symbol’s package</strong> dialog will open as used to do this task in the Schematic Editor.</p>
+<h3>Reset Pre</h3>
+<p>The default Schematic symbol Prefix is <strong>U?</strong> If you create a resistor, you can set the Prefix to <strong>R?</strong></p>
+<h3>Others</h3>
+<p><strong>Name</strong>: You can change the schematic lib’s name here, it is can be different from the part’s file name.</p>
+<p><strong>Contributor</strong>: This is your registered user name. Other EasyEDA’s users will remember your contributions!</p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

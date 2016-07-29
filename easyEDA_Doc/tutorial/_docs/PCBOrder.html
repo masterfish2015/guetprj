@@ -1,0 +1,643 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="" href="API.html">API</a></li>
+<li><a class="" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="active" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <h1>PCB Order</h1>
+<p>After laying out your PCB, you probably want to order some <strong>PCBs</strong>. We have made it easy for you to save time and money by using our <strong>awesome service</strong> to order <strong>low cost</strong>, <strong>high quality</strong> PCBs <em>directly</em> from EasyEDA. More importantly, if you are not satisfied with the quality of our PCBs, EasyEDA will refund your money in full.</p>
+<p>Although EasyEDA makes it easy to order PCBs for your projects and offers an exceptionally low PCB Manufacturing fee, you are free to download the Gerber files and order your PCBs from any other vendor. However, if you like EasyEDA, please give us a chance to fab. the PCB for you. We think you won't be disappointed.</p>
+<h2>PCB Quality</h2>
+<p>As engineers, we have spent more than 6 years building EasyEDA. As artisans, we believe that if you like using our EDA tools, then you will like our PCBs.</p>
+<p>EasyEDA's PCB are in a group buy model and all PCBs are given 100% E-test This allows us to provide you with good quality, tested PCBs at a great price. We have shipped thousands to our users, all of whom like our PCBs.</p>
+<p>No matter how good we tell you our service is, maybe you still have doubts. The easy way to remove those doubts is to try it out because - as we have said above - if you are not satisfied with the quality of our PCBs, we will refund your money in full. For details of this offer, please check the <a href="#WarrantyandReturn">Warranty and Return</a>.</p>
+<h2>Order Button</h2>
+<p>To order PCBs from us, just click the <strong>Fabrication Output...</strong> button in the PCB Editor window, as shown in the image below, and you will be redirected to an order page. In that page you can place an order quickly and easily. At the same time, at the clcik of a button, you can check the Gerber and drill files in our Online Gerber Viewer and then download your files. Obviously, we hope that you will support EasyEDA by ordering your PCBs from us but you are welcome to download the Gerber and drill files and send them to your favorite PCB house.</p>
+<p><img src="images/pcbFabrication.png" alt="" /></p>
+<h2>PCB Order from EasyEDA Editor</h2>
+<p>When you click the <code>Fabrication Output...</code> button your order is coming from within the EasyEDA editor environment so you don't need to input information about <strong>Layers</strong>, <strong>Width</strong> and <strong>Height</strong>; EasyEDA fills this information in for you.</p>
+<p>On the order form page you will find a real time price. Most of the time this price is the final cost however if, for example, you change the Layers to 4 or 6, you will find the price field changes to <strong>Quote</strong>. If that happens, don't worry: just click the <code>Save to Cart</code> button and we will email a quote for the final price to you ASAP.</p>
+<p><strong>Note.</strong> When you add your PCB to the cart, EasyEDA saves a copy of Gerber files <em>at that time</em>. If you then change your PCB back in the PCB editor, <em>EasyEDA does not synchronize your Gerber files to the updated PCB design</em>. The only way is to delete the earlier version of the PCB from your Cart and then add the updated design as a new item.</p>
+<p><img src="images/PCBOrderPage1.png" alt="" /></p>
+<h2>PCB Order from Order Link</h2>
+<p>If you would like to upload your own Gerber files from a third party PCB tool such as Eagle, Pads, or Altium Design. To do this, just click this link <a href="https://easyeda.com/order">https://easyeda.com/order</a> to order. This page will let you upload your own Gerber Files.</p>
+<p><img src="images/PCBOrderPage2.png" alt="" /></p>
+<h2>PCB Capabilities</h2>
+<table>
+<tbody>
+<tr>
+<td width="200">Number of Copper Layers*</td>
+<td width="400">1-16</td>
+</tr>
+<tr>
+<td>PCB Material</td>
+<td>FR-4, FR4-Tg, FR4-High Tg</td>
+</tr>
+<tr>
+<td>Available Solder Mask Colors</td>
+<td>Green, Red, Yellow, Blue, White, Black</td>
+</tr>
+<tr>
+<td>Silk Screen Colors</td>
+<td>White, Black (For White Solder Mask only)</td>
+</tr>
+<tr>
+<td>Minimum Quantity</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Minimum dimensions*</td>
+<td>0.4cm x 0.4cm</td>
+</tr>
+<tr>
+<td>Maximum dimensions*</td>
+<td>100cm x 100cm</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>If your PCB requires more than the default maximum of 6 layers (up to a maximum of 16) or larger dimensions, please contact us before placing your order</p>
+</li>
+<li>
+<p>If your PCB dimensions are bigger than 45cm * 45cm, maybe add a few addition cost</p>
+</li>
+</ul>
+<h2>Manufacturing Specifications:</h2>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr bgcolor="#ccc">
+<td rowspan="2">Item</td>
+<td colspan="3">Specs</td>
+</tr>
+<tr bgcolor="#ccc">
+<td>Unit: mm</td>
+<td>Unit: mil</td>
+</tr>
+<tr>
+<td>Available Board Thickness</td>
+<td>0.4, 0.6 (except 4 layer), 0.8, 1.0, 1.2, 1.6, 2.0</td>
+<td>15.7, 23.6 (except 4 layer), 31.5, 39.4, 47.2, 63.0, 78.7</td>
+</tr>
+<tr>
+<td>Thickness Tolerance</td>
+<td>(t &gt;= 1.0) ± 10%</td>
+<td>(t &gt;= 39.4) ± 10%</td>
+</tr>
+<tr>
+<td>Thickness Tolerance</td>
+<td>(t &lt; 1.0) ± 0.1%</td>
+<td>(t &lt; 39.4) ± 0.1%</td>
+</tr>
+<tr>
+<td>Insulation Layer Thickness</td>
+<td>0.075 - 5.0</td>
+<td>2.95 - 196.85</td>
+</tr>
+<tr>
+<td>Minimum trace width</td>
+<td>0.089</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>Minimum inner trace width </td>
+<td>0.127</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Minimum trace/vias/pads space</td>
+<td>0.102</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Minimum inner trace/vias/pads space </td>
+<td>0.102</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Minimum silkscreen width</td>
+<td>0.1524</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Minimum silkscreen text size</td>
+<td>0.8128</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Outer Layer Copper Thickness</td>
+<td>&gt; 0.03</td>
+<td>&gt; 1.18</td>
+</tr>
+<tr>
+<td>Drilled Hole Diameter (Mechanical)</td>
+<td>0.3 - 6.35</td>
+<td>11.81 - 250.00</td>
+<tr>
+<td>Drilled Hole Diameter (Laser)</td>
+<td>0.2 - 0.3</td>
+<td>7.87 - 11.81</td>
+</tr>
+<tr>
+<td>Diameter Tolerance (Mechanical)</td>
+<td>	±0.08 </td>
+<td>	± 3.148</td>
+<tr>
+<td>Solder Mask Bridges</td>
+<td>0.1</td>
+<td>3.94</td>
+</tr>
+<tr>
+<td>Circuit to edge</td>
+<td>≥0.3</td>
+<td>≥11.8</td>
+</tr>
+<tr>
+<td>Slot</td>
+<td>≥0.6</td>
+<td>≥23.6</td>
+</tr>
+<tr>
+<td>Slot Tolerance(Mechanical)</td>
+<td>±0.15</td>
+<td>±6</td>
+</tr>
+<tr>
+<td>Aspect Ratio</td>
+<td colspan="2">8:1</td>
+</tr>
+<tr>
+<td>Solder Mask Type</td>
+<td colspan="2">Photosensitive ink</td>
+</tr>
+</tbody>
+</table>
+<p>If you have any special PCB requirements, please contact us before placing your order.</p>
+<h2>Price</h2>
+<p>All Prices stated are FOB Shenzhen. This does not include transportation costs which shall be borne by the customer.</p>
+<h3>Manufacturing Price</h3>
+<p>Price is dependant on many factors, such as the quantity of PCBs you order, PCB Color, Surface Finish, PCB Thickness, PCB Dimensions, Hole size etc.</p>
+<p>EasyEDA uses a group buy business model and we are sure it will be hard to find a better PCB suppler than EasyEDA offering the same price and quality.</p>
+<p>EasyEDA needs 2~4 days to manufacture the PCBs after you submit payment.</p>
+<h3>Shipping Costs</h3>
+<table>
+<tbody>
+<tr bgcolor="#ccc">
+<td width="50">Method</td>
+<td width="300">note</td>
+<td width="50">Price</td>
+<td  >Service</td>
+</tr>
+<tr>
+<td><strong>&nbsp;Air Mail</strong></td>
+<td>&nbsp;Delivery Time: 8-35 days. Most of our users receive their PCBs in two weeks.</td>
+<td>From $6</td>
+<td >Usually  http://www.singpost.com/ </td>
+</tr>
+<tr>
+<td>&nbsp;<strong>Express</strong></td>
+<td>&nbsp;Delivery Time: 3-7 days</td>
+<td>From $24</td>
+<td >Usually delivered by http://www.DHL.com/ </td>
+</tr>
+<tr>
+</tbody>
+</table>
+<p>Note: The shipping cost is estimated. EasyEDA will always try to find the best shipping option.  If you are in some <a href="http://raslist.dhl.com/jsp/first.jsp">Remote Areas</a>, we will ask you to pay for more or change to some other express service such as Fedex, UPS. Sometimes, we will use <a href="http://www.hongkongpost.hk/eng/index.htm">Hongkongpost</a> for delivery by Airmail.</p>
+<h2>File Name</h2>
+<p>If your gerber files name are good, this will save us a lot of time in checking your design.
+There are many different PCB design software packages so there are many variations of gerber file names and filename extensions.</p>
+<p>Gerber Type</p>
+<p><img src="images/Gerber_File_name.png" alt="" /></p>
+<p>If you don't know how to map your files, don't worry about changing the file names please contact support for help.</p>
+<p><strong>We encourage you to use our free online <a href="https://gerber-viewer.easyeda.com/">gerber viewer</a> to check your gerber files before place an order.</strong></p>
+<h2>E-Test</h2>
+<p>All PCBs undergo a 100% AOI (Automated Optical Inspection) to make sure that all tracks and pads are connected.
+In addition to this the PCBs can be tested by a flying probe to make sure that all vias are connected, because this is not visible by the AOI. Single layer PCBs do not require this test because there are no vias but boards with 2 layers and above will always be 100% tested with a flying probe.</p>
+<h2>Payment</h2>
+<p>We accept the PayPal, Credit Card and Wire Transfers.</p>
+<h3>PayPal and Credit Card</h3>
+<p>We use Paypal as our payment; it is safe and easy. If you don't have a Paypal account, you can still use Paypal to pay with a debit or credit card.</p>
+<p><img src="images/paycard.png" alt="" /></p>
+<h3>Wire Transfers</h3>
+<p>Wire Transfers can only be used on orders with a grand total (subtotal plus all additions and deductions but excluding shipping fees) of at least $600. For orders &gt; $2000, payment by Wire Transfer is preferred. In this circumstance, 3.5% extra discount will be applied for the grand total (subtotal plus all additions and deductions but excluding shipping fees). Wire Transfer payments usually take 3-5 business days to clear. We will not ship your order until your payment is verified by our bank. Please send a copy of the Wire Transfer receipt to our customer service because although it is not sufficient to release an order, it will help us to push the delivery date.</p>
+<h2>Customs, Duties and Taxes</h2>
+<p>You should expect to pay any amount charged by the government in your respective country. This includes but is not limited to: duties, taxes and any extra fees charged by the courier company. We will not be held responsible for any extra charges once the original package has been shipped. If the customer refuses to pay these extra charges, the return shipping and any additional fees will be taken out of the cost of the order, with any remaining funds being refunded to the customer.
+Customs are quite different in each country. Please include information about particular Customs requirements as necessary, while you are placing your order: we will support you as much as possible.</p>
+<h2>Warranty and Return</h2>
+<p>For your first order for a PCB laid out in <strong>EasyEDA</strong>, we have the top return policy on the planet! If you don't like them, just send an email to</p>
+<p><img src="images/support_email.png" alt="" />, no reason needed. We will provide your full money back - including product + shipping costs - in one working day.</p>
+<p>For subsequent orders, because you now know the quality level of our PCBs, if you are not satisfied with a product you bought from us for whatever reason, you just need to email us some pictures of the product and explain why you are not happy with it. We will then refund the full money of the product. Shipping fees will only be refunded if the return is a result of a shipping error on our part.</p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

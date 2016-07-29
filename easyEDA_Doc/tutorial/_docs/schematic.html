@@ -1,0 +1,638 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="" href="API.html">API</a></li>
+<li><a class="" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="active" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <h1>Creating The Schematic</h1>
+<iframe width="920" height="540" src="//www.youtube.com/embed/0TFjMWQkO80" frameborder="0" allowfullscreen></iframe>
+During this tutorial we will create the Schematic design for an Astable Multivibrator LED project to guide you in how to use EasyEDA Schematic capture.
+<h2>How To Find The Schematic Libraries</h2>
+<p>From the Navigation List drop down list, you can find:</p>
+<ol>
+<li><strong>My Parts</strong> which contains parts which you have created.</li>
+</ol>
+<p><img src="images/image114.png" alt="" /></p>
+<ol start="2">
+<li>** My Favorite Parts** which contains parts that you have added from the a search using the More Libraries button which is at the bottom of left  blue jigsaw piece button:</li>
+</ol>
+<p>At the bottom of the left hand Navigation panel you will find a button with “<strong>More Libraries</strong>” ,
+Click it, or press the hotkey combination <code>Shift+F</code>.</p>
+<p><img src="images/latest-upgrade/image01.png" alt="" /></p>
+<p>Then you will see a dialog as shown in the image below.</p>
+<p>Simply type your <em>part number</em> or <em>footprint</em> to Search.</p>
+<p><img src="images/latest-upgrade/image05.png" alt="" /></p>
+<ol start="3">
+<li><strong>EasyEDA Libs</strong> which contains ready made symbols for a wide range of components and which can be simulated.</li>
+</ol>
+<p><img src="images/image29.png" alt="" /></p>
+<p>Many of these components have optional US and EU style symbols. You can click the drop down list or right click to popup the context menu. EasyEDA will remember your choices next time.</p>
+<p>Don’t forget to use Filter to locate a component fast. For example, you just need to type <code>res</code> to find all of resistors:</p>
+<p><img src="images/image120.png" alt="" /></p>
+<h2>Canvas Settings</h2>
+<p>You can find the canvas Properties setting by clicking on any the blank space in the canvas.</p>
+<p><img src="images/image126.png" alt="" /></p>
+<p>As described earlier, background and grid colours and the style, size, visibility and snap <strong>attributes</strong> of the grid can all be configured.</p>
+<p>The canvas area can be set directly by the Width and Height or preset frame sizes are available.</p>
+<h3>Grid</h3>
+<p><strong>Visible Grid</strong> : Yes or No</p>
+<p><strong>Grid Color</strong>: any valid colour</p>
+<p><strong>Grid Style</strong>: Line or Dot</p>
+<p><strong>Grid Size</strong>: To ensure proper alignment of all EasyEDA parts, it is advisable to set in 10, 20, 100.</p>
+<p><strong>Grid</strong> (and background) colour can be set directly by entering the hexadecimal value of the colour you want or by clicking on a colour in the palette that opens when you click in the colour value box:</p>
+<p><img src="images/image144.png" alt="" /></p>
+<h3>Snap</h3>
+<p><strong>Snap</strong>: Yes or No. The default hotkey is G. Press this key toggles switching snap to grid on and off.</p>
+<p><strong>Snap Size</strong>: To ensure proper alignment of all EasyEDA parts, it is advisable to set in 10, 20, 100 but any valid number can work, such as 0.1, 1, 5.</p>
+<p>It is strongly recommended that you keep <strong>Snap = Yes</strong> all the time. Once items are placed off-grid it can be very difficult to reset them back onto the grid. Off-grid placement can result in wires looking as though they are joined when in fact they are not and so causing netlisting errors that can be hard to track down.</p>
+<p>If you need to draw detailed parts of new symbols or footprints that need to go between grid points, try to reduce the grid spacing to draw these elements and then reset the grid back to your chosen default value as soon as you have completed that part of the drawing. Setting Snap=No should only really be used as a last resort.</p>
+<p><strong>ALT Sanp</strong>: Snap size when pressing the <code>ALT</code> key.</p>
+<h2>Placing Components</h2>
+<p>Find the component which you plan to place to your schematic, then move your mouse to the canvas and left click. If you want to add more, just left click again. To end the current sequence of placements, right click once or press <code>ESC</code>.</p>
+<p>Don't try to Drag and Drop a component to canvas: EasyEDA team thinks that Click-Click to place component will be easier to use than Click-Drag mode.</p>
+<p>This screenshot below shows how the schematic canvas looks like after we have placed all the components for the <strong>Astable Multivibrator</strong> LED project:</p>
+<p><img src="images/image39.png" alt="" /></p>
+<h2>Rotating the Prefix and Value (Name) of components</h2>
+<p>The default Prefix and Value (or name) of EasyEDA components are horizontal. To change them to vertical like this...</p>
+<p><img src="images/image146.png" alt="" /></p>
+<p>...Left click the prefix or value and when it is highlighted in <strong>red</strong> color, then press the <strong>rotation</strong> hotkey <strong>Space</strong> and you’re done.</p>
+<h2>Adjusting Components</h2>
+<p>You can:</p>
+<ol>
+<li>Move components with your mouse</li>
+<li>Move components with the arrow keys.</li>
+<li>Find components with the Design Manager via the <code>CTRL+D</code> hotkey: select the component in the Design Manager to pan it to the centre of the canvas and then move it with your mouse.</li>
+<li>Align the components:</li>
+</ol>
+<p><img src="images/image41.png" alt="" /></p>
+<h2>How To Wire</h2>
+<p>There are three ways to enter the wire mode in EasyEDA.</p>
+<ol>
+<li>Click the <strong>Wire</strong> button from the <strong>Wiring Tools</strong> palette.</li>
+<li>Press the <code>W</code> hotkey.</li>
+<li>Click on the end of a component pin (where the grey pin dot appears if you select the component):</li>
+</ol>
+<p><img src="images/image25.png" alt="" /></p>
+<p>EasyEDA automatically enters <strong>Wire</strong> mode.</p>
+<p>Here is a screen shot of the <strong>Astable Multivibrator LED project schematic</strong> after wiring:</p>
+<p><img src="images/image110.png" alt="" /></p>
+<h3>About moving components and wires</h3>
+<p>Note that if you place a component, such as a resistor, on top of a wire then the wire breaks and reconnects to the ends of the component.</p>
+<p>When moving selected components using the mouse, they will drag attached wires with them (“rubber band”) to some extent but please be aware that the rubber banding feature has some limitations. Using the arrow keys will not rubber band. Selected wires do not rubber band.</p>
+<p>A selected wire can be moved directly by clicking on it using the mouse or by the arrow keys. If a wire is selected by clicking on it using the mouse then green grab handles will appear at the ends and vertices.</p>
+<h2>NetLabel and Netflag</h2>
+<p><strong>NetLabel</strong> can be used to give your wires names to help you find them and identify any mis-connections. You can find the <strong>NetLabel</strong> from the Wiring Tools palette or using the <code>N</code> hotkey. When selecting the netlabel, you will find it’s attributes in the right hand Properties panel:</p>
+<p><img src="images/image75.png" alt="" /></p>
+<p>You can change it’s name and colour. If you only want to change it’s name, it may be easier to just double click the netlabel.</p>
+<p><strong>NetFlag</strong> is the same as NetLabel, you can find the NetFlag from the Wiring Tools palette or using the <code>Ctrl+G</code> hotkeys for <strong>GND</strong> or <code>Ctrl+Q</code>for <strong>VCC</strong>. You can also change it’s name, for example from <strong>VCC</strong> to <strong>VDD</strong>:</p>
+<p><img src="images/image160.png" alt="" /></p>
+<p>The screen shot below is after adding NetLabels - indicated by the little <strong>egg marks</strong> - and a <strong>GND</strong> NetFlag: the schematic is almost finished.</p>
+<p><img src="images/image06.png" alt="" /></p>
+<p>###NO Connect Flag
+You can find the <code>NO Connect Flag</code> via wiring tool,
+<img src="./images/no-connect-flag-tool.png" alt="" />, in the bellow schematic, if you don't add a <code>NO Connect Flag</code>, there is a error flag in the nets collection.
+<img src="./images/No-connect-flag.png" alt="" />
+After add a <code>NO Connect Flag</code>
+<img src="./images/add-no-connect-flag.png" alt="" /></p>
+<h2>Multi-part Components</h2>
+<p>The number of pins on some components can be quite large. That's why it's easier to divide such component into several parts or functional blocks. As a simple example, there are six gates in the 74HC04 Hex Inverter component. To avoid clutter in the schematic, GND and VCC pins of such components are usually served by a separate part of the component. This is really convenient as it doesn't interfere the working process with logical parts. The NetLabel names of VCC and GND Pin are usually hidden.</p>
+<p>When placing the 74HC04 on a schematic, it will look like the screenshot below. Note: the component Prefix will be in form of: U?.1, U?.2 etc.</p>
+<p><img src="images/image67.png" alt="" /></p>
+<p>##User Defined BOM Parameters
+After select a schematic lib, you can add a parameter, and you can mark it as <code>In BOM</code>, when you export a BOM file, you can find this in CSV file.
+<img src="./images/UserDefineBOM.png" alt="" /></p>
+<p>##Prefix Start
+Every <strong>new</strong> schematic file has a <code>Prefix Start</code> custom paarameter, some users would like use  <strong>multi-sheet designs</strong>, but they hate every prefix start by 1, they hope one schematic start by 1, next start by 100, 200, 300. So you can use this solution.
+<img src="./images/Prefix-Start.png" alt="" /></p>
+<h2>Design Manager</h2>
+<p>With large schematics it can be hard to find the components quickly. Sometimes, you may make a mistake such as wiring to a wrong component pin.</p>
+<p>So you need a tool to help you out.</p>
+<p>**Design Manager **is the just tool.</p>
+<p></p>
+<p>You can find it via
+**
+Super menu &gt; Miscellaneous &gt; Design Manager **</p>
+<p>or just press the <code>CTRL+D</code> hotkey to open the Design Manager dialog.
+or click it via
+<img src="images/designManagerSCH2.png" alt="" /></p>
+<ol>
+<li><strong>Filter</strong>: You can find your components or netname easily: for example, if you want to find all capacitances, you just need to type C;</li>
+<li><strong>Components</strong>: lists all the components in this schematic. Clicking on a Component item highlights that component and pans it to the centre of the window: D1 in this example.</li>
+<li><strong>Nets Name</strong>: lists all the nets in this schematic. A net must connect at least two Pins, or the net name will be marked as a red error.</li>
+<li><strong>Parts Pins</strong>: lists all the pins of the selected component or pins connected to the selected net name.</li>
+</ol>
+<p>If you click the Pin <strong>A:R1_1</strong>, EasyEDA will show you where it is with a temporary marker from the top left of the canvas:</p>
+<p><img src="images/image40.png" alt="" /></p>
+<h2>Find Components In a Schematic</h2>
+<p>Using <strong>Design Manager</strong> can find components but in large schematic, it may be too slow and and return too much information. A lighter weight alternative is to use the <code>CTRL+F</code> hotkeys to find the component in the active schematic.</p>
+<p><img src="images/image149.png" alt="" /></p>
+<p><em>Note that you have to click OK in this dialog: you can’t use the Enter key.</em></p>
+<h2>Component Attributes</h2>
+<p>After selecting a component, you can find the component’s attributes in the right hand Properties panel.</p>
+<p><img src="images/image42.png" alt="" /></p>
+<p>You can change the <strong>Prefix</strong> and <strong>Model</strong> here (in this component, we take the <strong>Name</strong> as <strong>Model</strong>).</p>
+<p>If you want to hide the component name text <strong>2N2904</strong>, you can switch Name Display to <strong>No</strong>.</p>
+<h3>Update Package</h3>
+<p>If you want to change the Package, for example, from <strong>TO-92</strong> TO <strong>TO220</strong>, you just need to click in the package input box. EasyEDA will popup the package choice dialog. You can follow the instructions. Type <strong>TO220</strong> into the Filter box, select the <strong>TO220</strong>, verify it in the preview box, then press the Update button. After that you will find you have changed the package to <strong>TO220</strong>.</p>
+<p>Note that to ensure that you use a package type that is already in the EasyEDA libraries, it is recommended that you use this technique to change component packages rather than just typing a package type directly into the package text box.</p>
+<p><img src="images/image24.png" alt="" /></p>
+<h2>Annotate</h2>
+<p>After creating a schematic, it is quite likely that you have component Prefixes (reference designators) that are in no particular order on the canvas. You may also have duplicates. You can automatically renumber all the components using the <strong>Annotate</strong> function.</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Annotate</strong></p>
+<p><img src="images/image141.png" alt="" /></p>
+<p>Various Annotate possibilities  are available:</p>
+<ul>
+<li><strong>Active Schematic only</strong>: applies annotation actions to the current schematic only.</li>
+<li><strong>All Opened Schematics</strong>: applies annotation actions to all Schematics that are open in EasyEDA.</li>
+</ul>
+<p>Note: this option applies even if the opened schematics are from different Projects! If the project that you want to annotate has more than one schematic, you should open all of them and close any schematics that are open from other Projects.</p>
+<ul>
+<li><strong>Re-annotate all</strong>: resets all existing annotation and then annotates all components again from scratch;</li>
+<li><strong>Keep existing annotation</strong>: annotates new components only (i.e. those whose reference designator finishes with ? like R? or U?).</li>
+<li><strong>Direction</strong>: Rows annotates across the schematic in a raster pattern from top left to bottom right; Cols annotates down the schematic in a raster pattern from top left to bottom right.</li>
+<li><strong>Annotate</strong>: applies the selected annotation actions.</li>
+</ul>
+<p><em>Note: Annotation cannot be undone! if you do not accept the result: close all of the affected schematics without saving. If you do accept the result: make sure you save all of the affected schematics.</em></p>
+<ul>
+<li><strong>Reset</strong>: if you want to reset all the reference designators to end with ?, just click the Reset button. After that, R1 will be R?, U1 will be U? etc.</li>
+</ul>
+<p><em>Note that Reset does not reset annotation back to where it was before pressing the Annotate button.</em></p>
+<p></p>
+<h2>Symbol Wizard</h2>
+<p>How many times have you hit a schematic capture roadblock because you can’t find a component symbol?</p>
+<p>Well, in EasyEDA that would be never because the <strong>Symbol Wizard</strong> provides a quick and easy way to create a general schematic library symbol. The <strong>Symbol Wizard...</strong> command can be found in the top toolbar.</p>
+<p><img src="images/image136.png" alt="" /></p>
+<p>Using the <strong>NE555</strong> timer as an example: this device is available in a <strong>DIP8</strong> package so select <strong>DIP</strong>. Then enter the NE555 pin names into the <strong>Pin Names</strong> text box separated by new line or space, Then press OK. Abracadabra! As if by magic, you will find a perfectly formed dual in line 8 pin symbol for the NE555 attached to your mouse cursor, ready to be placed! You just need a few seconds to build a NE555 symbol, quickly and easily.</p>
+<p><img src="images/image88.png" alt="" /></p>
+<p>The EasyEDA Schematic Symbol Wizard allows you to create DIP, QPF or SIP styles symbols. If you are designing Arduino Shields then you will need lots of SIP symbol, so you can create a SIP symbol like the one shown below in a few seconds.</p>
+<p><img src="images/image22.png" alt="" /></p>
+<p>If you are not too worried that the symbols may not look quite the way people might expect and that they may not look anything like the <strong>Package</strong> type you enter, then of course you can use the wizard to create symbols for any component:</p>
+<p><img src="images/image79.png" alt="" /></p>
+<h2>Group/Ungroup</h2>
+<p>On the <strong>Wiring Tools</strong> palette there is the <strong>Group/Ungroup Symbol…</strong> button.</p>
+<p><img src="images/image108.png" alt="" /></p>
+<p>Just like the <strong>Symbol Wizard</strong>, this tool is also for you to quickly create schematic library symbols.</p>
+<p>Using the** Symbol Wizard** you can just create generic symbols but how can you quickly and easily create symbols like these?</p>
+<p><img src="images/image48.png" alt="" /></p>
+<p>Here’s how.</p>
+<p>EasyEDA allows you to do something that very few other EAD tools support.</p>
+<p>Using the P Hotkey, you are allowed to add a PIN directly onto the Schematic canvas. So you can add 8 Pins, draw a rectangle from the Drawing Tools palette and add 555 as text to form a symbol for the NE555 like the one shown below:</p>
+<p><img src="images/image55.png" alt="" /></p>
+<p>Now comes the clever bit.</p>
+<p>Up to this point you have a collection of separate pins, a drawn rectangle and some text that are all separate items with no particular association with each other.</p>
+<p>So now select all of the items and click the Group/Ungroup Symbol… button. A dialog will be opened:</p>
+<p><img src="images/image102.png" alt="" /></p>
+<p>After you click OK, all those separate elements will be grouped together to form your new symbol directly in the schematic.</p>
+<p>Using group function, you can create any symbol in the schematic, easily and quickly.</p>
+<p>How cool is that?</p>
+<p>So what does Ungroup do? Try selecting a symbol and then click the Group/ungroup command to see what happens!</p>
+<p>Note that the pin numbers and names cannot be moved independently of the pin.</p>
+<h2>Pinmap Modify symbol information</h2>
+<p>When you select a component, you can do:</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Edit Symbol...</strong></p>
+<p>or press the <code>I</code> hotkey to open the Modify symbol your information dialog. Using this dialog you can edit the pin names and numbers, for example, to suit a different package or device variant. You can also enter a Spice Prefix and swap the spice Pin order to make your symbol usable in simulation. <img src="images/image145.png" alt="" /></p>
+<p>A more detailed description of PCB and Spice Prefixes and pin numbers is given in the section on <a href="./prefixesandPinNumbers.html">Schematic symbols: prefixes and pin numbers</a>.</p>
+<h2>Hierarchy</h2>
+<p>EasyEDA does not support true hierarchical designs but it does support <strong>multi-sheet designs</strong>. You can put several schematics in one project with connections between made by netlabels. All nets in EasyEDA are global so if you create a netlabel DATA0 in schematic A and then create a netlabel DATA0 in schematic B, when Schematic A and schematic B are in the same project, they will be connected.</p>
+<p><img src="images/image23.png" alt="" /></p>
+<p><strong>Multi-sheet designs</strong>(equivalent to a circuit spread over several pieces of
+paper), all schematics under the same project will be merged into one when be converted to PCB connecting in <strong>netlabe</strong>, <strong>netflag</strong>.
+<img src="images/multi-sheet.png" alt="" /></p>
+<p>Note: please make all of the prefixs unique, if the Schematic A has a R1, and the Schematic B has a R1, then you will get a <a href="/Doc/Tutorial/introduction.htm#Prefix-Conflict-Error">Prefix Conflict Error</a>
+Tip: Every schematic's prefix will start from 1, such as R1, C1, U1 etc,</p>
+<ol>
+<li>you can use <a href="/Doc/Tutorial/schematic.htm#Annotate">Annotate</a> to fix prefix</li>
+<li>You can set the prefix start to 100, then your components will start from R100, C100. <img src="images/prefixStart.png" alt="" /></li>
+</ol>
+<h2>Export BOM</h2>
+<p>You can <strong>export</strong> the Bill of Materials (BOM) for the active schematic (Document) and/or for the active project (i.e. the BOM for all the sheets in the project) as shown below:</p>
+<p><img src="images/image47.png" alt="" /></p>
+<p>After clicking the menu option, the dialog below will open:</p>
+<p><img src="images/image157.png" alt="" /></p>
+<p>Clicking the Export button downloads a bom.csv file via your browser, which can be opened in any text editor or spreadsheet.</p>
+<p><img src="images/image18.png" alt="" /></p>
+<h2>Export Netlist</h2>
+<p>EasyEDA can export the netlist for the active schematic (Document) and/or for the whole active project:</p>
+<p><strong>Super menu &gt; Miscellaneous &gt; Netlist for Document or Netlist for Project</strong></p>
+<p>EasyEDA can export a netlist in a variety of formats:</p>
+<ul>
+<li><strong>Spice</strong>: this is a Spice3f5 compatible netlist generated by the simulation engine of EasyEDA, <a href="http://www.google.com/url?q=http%3A%2F%2Fngspice.sourceforge.net%2Fpresentation.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNEvVOggHskD819G-5EW8EB59FL5mw">Ngspice</a>. It is not normally used as the basis for as a PCB layout.</li>
+<li><a href="http://www.kicad-pcb.org/">KiCad</a>: a PCB netlist in a format that can be imported straight into Pcbnew, the PCB layout tool part of the free, open source cross-platform EDA suite.</li>
+<li><strong>Altium Designer</strong>: a PCB netlist in a format that can be imported straight into Altium Designer and it’s predecessor, Protel.</li>
+<li><strong>Pads</strong>: a PCB netlist in a format that can be imported straight into Pads PCB layout tools.</li>
+<li><a href="http://www.freepcb.com/">FreePCB</a>: a PCB netlist in a format that can be imported straight into FreePCB, a  free, open source PCB editor for Windows.</li>
+</ul>
+<p><img src="images/image76.png" alt="" /></p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

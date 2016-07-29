@@ -1,0 +1,819 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+
+/*! ADAPTED
+Typeplate : Starter Kit
+URL ........... http://typeplate.com
+Version ....... 3.0.2
+Github ........ https://github.com/typeplate/starter-kit
+Authors ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
+License ....... Creative Commmons Attribution 3.0
+License URL ... https://github.com/typeplate/starter-kit/blob/master/license.txt
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0;
+  color: #222;
+}
+
+blockquote + figcaption cite {
+  display: block;
+  font-size: inherit;
+  text-align: right;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+pre code {
+  word-wrap: normal;
+}
+
+body {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  color: #444;
+}
+
+h1 { font-size: 2em;    /* 2*16 = 32 */       }
+h2 { font-size: 1.5em;  /* 1.5*16 = 24 */     }
+h3 { font-size: 1.17em; /* 1.17*16 = 18.72 */ }
+h4 { font-size: 1em;    /* 1*16 = 16 */       }
+h5 { font-size: 0.83em; /* 0.83*16 = 13.28 */ }
+h6 { font-size: 0.75em; /* 0.75*16 = 12 */    }
+
+h1 { margin: 2.42424rem 0 1.454544rem; }
+h2 { margin: 2.0202rem 0 1.21212rem;  }
+h3 { margin: 1.61616rem 0 1rem; }
+h4 { margin: 1.21212rem 0 1; }
+h5 { margin: 0.80808rem 0; }
+h6 { margin: 0.70707rem 0; }
+
+p { margin: auto auto 1.5rem; }
+
+small {
+  font-size: 65%;
+}
+
+input,
+abbr,
+acronym,
+blockquote,
+code,
+kbd,
+q,
+samp,
+var {
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre {
+  white-space: pre;
+}
+
+pre code {
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+}
+
+code {
+  white-space: pre;
+  font-family: SF Mono, Consolas, Dejavu Sans Mono, Menlo, monospace;
+}
+
+abbr {
+  -webkit-font-variant: small-caps;
+  -moz-font-variant: small-caps;
+  -ms-font-variant: small-caps;
+  font-variant: small-caps;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: gray;
+}
+
+abbr[title]:hover {
+  cursor: help;
+}
+
+/* FROM http://purecss.io/layouts/side-menu/  adapted to remove pure classes*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #444;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+code, pre {
+  background-color: #f5f5f5;
+  color: #444;
+  border-radius: 2px;
+  text-shadow: 0px 1px 0px white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+pre code {
+  border: none;
+  box-shadow: none;
+}
+pre {
+  padding: 0.5em;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+/*
+Add transition to containers so they can push in and out.
+ */
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+ */
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+#layout.active #menu {
+  left: 250px;
+  width: 250px;
+}
+#layout.active .menu-link {
+  left: 250px;
+}
+
+/*
+The content `<div>` is where all your content goes.
+ */
+.content {
+  margin: 50px auto;
+  padding: 0 2em;
+  max-width: 80ex;
+  line-height: 1.6em;
+}
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the menu that
+appears on the left side of the page.
+ */
+#menu {
+  margin-left: -250px; /* "#menu" width */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000; /* so the menu or its navicon stays above all content */
+  background: #f4f4f4;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9em;
+}
+
+/*
+All anchors inside the menu should be styled like this.
+ */
+#menu a {
+  display: block;
+  text-decoration: none;
+  color: #888;
+  padding: 0.5em 0.5em;
+}
+#menu a:first-letter {
+  text-transform: capitalize;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0.5em;
+}
+#menu ul ul {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  border-left: 4px solid rgba(255,255,255,0.5);
+}
+
+/*
+Change color of the anchor links on hover/focus.
+ */
+#menu li a:hover,
+#menu li a:focus {
+  background: rgba(255,255,255,0.4);
+}
+
+/*
+This styles the selected menu item `<li>`.
+ */
+#menu li a.active {
+  background: rgba(0,0,0,0.05);
+}
+
+/*
+This styles a link within a selected menu item `<li>`.
+ */
+#menu li a.active {
+  color: #222;
+}
+
+/*
+This styles the menu heading.
+ */
+#menu li.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 1em 0.5em 0;
+}
+
+/* -- Dynamic Button For Responsive Menu -------------------------------------*/
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+ */
+.menu-link {
+  position: fixed;
+  display: block; /* show this only on small screens */
+  top: 0;
+  left: 0; /* "#menu width" */
+  background: #f4f4f4;
+  font-size: 10px; /* change this value to increase/decrease button size */
+  z-index: 10;
+  width: 2em;
+  height: auto;
+  padding: 1.6em 1.2em;
+}
+
+.menu-link:hover {
+  background: /*#f4f4f4 * 0.8*/#eee;
+}
+
+.menu-link span {
+  position: relative;
+  display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+  background-color: #fff;
+  width: 100%;
+  height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+  position: absolute;
+  margin-top: -0.6em;
+  content: " ";
+}
+
+.menu-link span:after {
+  margin-top: 0.6em;
+}
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+ */
+@media (min-width: 48em) {
+
+  .header,
+  .content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #layout {
+    padding-left: 250px; /* left col width "#menu" */
+    left: 0;
+  }
+  #menu {
+    left: 250px;
+  }
+
+  .menu-link {
+    position: fixed;
+    left: 250px;
+    display: none;
+  }
+
+  #layout.active .menu-link {
+    left: 250px;
+  }
+}
+
+@media (max-width: 48em) {
+  /* Only apply this when the window is small. Otherwise, the following
+  case results in extra padding on the left:
+   * Make the window small.
+   * Tap the menu to trigger the active state.
+   * Make the window large again.
+   */
+  #layout.active {
+    position: relative;
+    left: 250px;
+  }
+}
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+</head>
+<body>
+<div id="layout">
+  <!-- Menu toggle -->
+  <a href="#menu" id="menuLink" class="menu-link">
+    <!-- Hamburger icon -->
+    <span></span>
+  </a>
+  <nav id="menu">
+    <ul>
+<li><a class="" href="README.html">README</a></li>
+<li><a class="" href="index.html">index</a></li>
+<li><a class="active" href="API.html">API</a></li>
+<li><a class="" href="PCB.html">PCB</a></li>
+<li><a class="" href="PCBLib.html">PCBLib</a></li>
+<li><a class="" href="PCBOrder.html">PCBOrder</a></li>
+<li><a class="" href="PCBOrderFAQ.html">PCBOrderFAQ</a></li>
+<li><a class="" href="Privacy.html">Privacy</a></li>
+<li><a class="" href="Terms.html">Terms</a></li>
+<li><a class="" href="convert.html">convert</a></li>
+<li><a class="" href="creatingtheSchematicLibs.html">creatingtheSchematicLibs</a></li>
+<li><a class="" href="export.html">export</a></li>
+<li><a class="" href="import.html">import</a></li>
+<li><a class="" href="introduction.html">introduction</a></li>
+<li><a class="" href="new.html">new</a></li>
+<li><a class="" href="prefix.html">prefix</a></li>
+<li><a class="" href="schematic.html">schematic</a></li>
+<li><a class="" href="share.html">share</a></li>
+<li><a class="" href="spiceSimulation.html">spiceSimulation</a></li>
+</ul>
+  </nav>
+  <article id="main" class="content">
+    <p>#EasyEDA API Plug
+Before reading this capture, please check <a href="/Doc/Open-File-Format/">Open EasyEDA File Format</a> first.
+##Why Need API
+After route the PCB, you found out that you need to enlarge all tracks size a bit little, How?
+After route the PCB, you found out that all Vias' hole size is too small, How to fix this?
+How to create a board outline using code?
+EasyEDA API will let you control your designs in an easy way.
+##How to use API</p>
+<h3>How to find the plug entance</h3>
+<p><img src="./images/API-entance.png" alt="" /></p>
+<h3>Extensions Setting</h3>
+<p>You can enable or disable the default extensions, after enable, please <strong>reload</strong> the EasyEDA editor. We will give you a file about how to create an extensions soon.
+<img src="./images/Extensions-Setting.png" alt="" /></p>
+<p>If you enable the <strong>Theme Colors</strong> Extension, you will find a button on the tool bar like bellow image
+<img src="./images/Theme-Colors.png" alt="" />
+if you click the <strong>Black On White</strong>, you will find your schematic changes like bellow image, this is useful when you would like to print your design on a paper.
+<img src="./images/blackOnWhite.png" alt="" />.
+You can check our <strong>github</strong> codes of this API via <a href="https://github.com/dillonHe/EasyEDA-Documents/tree/master/API/example/theme">https://github.com/dillonHe/EasyEDA-Documents/tree/master/API/example/theme</a>, check the <strong>manifest.json</strong> and <strong>main.js</strong> out, you will find out how to create an extension.</p>
+<h4>How to install an extension</h4>
+<ol>
+<li>Click the Load Extension button</li>
+<li>Click the select file button</li>
+<li>Select <strong>All</strong> the files.</li>
+<li>Type a name</li>
+<li>Click the load button.</li>
+<li><strong>Close</strong> EasyEDA editor and open it again.
+<img src="./images/installExtension.png" alt="" />.</li>
+</ol>
+<h3>Scripts</h3>
+<p>If you just need some simple functions, you don't need to create an extension. You just need to create a single Javascipt file and keep it in this list.
+<img src="./images/scripts.png" alt="" />.</p>
+<ol>
+<li>You can select the <code>Hello World</code>, then click the <code>Run</code> button.</li>
+<li>You can select some items, then try <code>Move Selected Objects</code>.</li>
+</ol>
+<h3>Run Script code</h3>
+<p>In some case, you just need to run the function one time, such as create a user define board outline in codes, changing the Track width, change the hole size etc. You can use this way.
+<img src="./images/script.png" alt="" />.
+**example 1 Art **
+You can open an empty schematic and copy <a href="https://raw.githubusercontent.com/dillonHe/EasyEDA-Documents/master/API/example/schematicShapes.js">this example javascript codes</a> to the text box to run a test. After clicking the <code>Run</code> button, you will see bellow art image.
+<img src="./images/api-example-art.png" alt="" /></p>
+<p>**example 2 Change track width and via hole size **
+You can open a <strong>PCB</strong> and copy <a href="https://raw.githubusercontent.com/dillonHe/EasyEDA-Documents/master/API/example/modifyTrackVia.js">this example javascript codes</a> to the text box to run a test. After that, All tracks will be 10mil.
+##EasyEDA Coordinate System
+EasyEDA's editor is based <a href="http://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a>, SVG viewport,(Coordinates increase <strong>left-to-right</strong> and <strong>top-to-bottom</strong>, the same as EasyEDA ). But SVG's origin is fixed at the left top corn, and EasyEDA's origin can be modified at the any place.
+<img src="./images/coordinate.png" alt="" />.
+Be careful this, they are different from <strong>Cartesian coordinate system</strong>
+##Unit
+There are two kinds of unit in our editor, SVG Canvas unit and real world EasyEDA unit. SVG Canvas unit is <strong>Pixel</strong>. The real world EasyEDA unit in schematic is also <strong>Pixel</strong>, but in PCB, there are <strong>mm</strong>, <strong>mil</strong> and <strong>inch</strong>. We use bellow map to convert Canvas to real world.</p>
+<ul>
+<li>
+<p>1 pixel = 10 mil</p>
+</li>
+<li>
+<p>1 pixel = 0.254mm</p>
+</li>
+<li>
+<p>1 pixel = 0.01inch
+There are API for these convert.</p>
+<pre><code>//mm2pixel: convert 10mm to pixel
+var result = api('unitConvert', {type:'mm2pixel',value:10});
+</code></pre>
+</li>
+</ul>
+<pre><code>  //mil2pixel: convert 10mil to pixel
+  var result = api('unitConvert', {type:'mil2pixel',value:10});
+</code></pre>
+<p>There are other convert method, such as <code>inch2pixel</code>, <code>pixel2mm</code>, <code>pixel2mil</code> and <code>pixel2inch</code>.</p>
+<p>All EasyEDA's value is based pixel, if you can keep in mind that 1 pixel equal 10mil or 0.254 mm, you don't need to use any convert function.
+For example, if you want to change a Track to 20mil, so you just need to use 2.</p>
+<p>##API List
+###Get EasyEDA Source</p>
+<ol>
+<li>
+<p>get EasyEDA JSON objects, type is <code>json</code>, you can check  <a href="/Doc/Open-File-Format/PCBFileObject.htm">PCB Json object</a> out to know more.</p>
+<pre><code>var result = api('getSource', {type:'json'});
+</code></pre>
+</li>
+<li>
+<p>get <a href="/Doc/Open-File-Format/PCB.htm">EasyEDA compress string</a>, EasyEDA save this string to our database, it is a bit little hard to read and understand, but it is small in size. EasyEDA save this string to our database.</p>
+<pre><code>var result = api('getSource', {type:'compress'});
+</code></pre>
+</li>
+<li>
+<p>Get SVG string
+var result = api('getSource', {type:'svg'});</p>
+</li>
+</ol>
+<p>Check the <a href="https://raw.githubusercontent.com/dillonHe/EasyEDA-Documents/master/API/example/modifyTrackVia.js">Get EasyEDA source example codes</a>.
+###Apply Source
+After you can use your codes to hack EasyEDA's source, then you need to apply the source to EasyEDA's editor. You can</p>
+<ol>
+<li>
+<p>Apply as compress string</p>
+<pre><code>//will open a new editor and convert compressStr to EasyEDA file.
+api('applySource', {source:'compressStr', createNew: true});
+</code></pre>
+</li>
+<li>
+<p>Apply as Json object.</p>
+<pre><code>//will modify the active file and convert json object to EasyEDA file.
+api('applySource', {source: json, createNew: !true});
+</code></pre>
+</li>
+</ol>
+<p>Check the <a href="https://raw.githubusercontent.com/dillonHe/EasyEDA-Documents/master/API/example/modifyTrackVia.js">Apply Source example codes</a>.
+###Get Shape
+If you want to get an EasyEDA json object by <strong>id</strong>, you can try to use bellow code.</p>
+<pre><code>      var obj = api('getShape', {id:'gge13'})
+</code></pre>
+<p>###Delete Shapes
+Removing shapes by follow code</p>
+<p>###Update Shape
+If you want to modify an EasyEDA object, you can use this API.</p>
+<pre><code>//Change the net to GND and the shape to ELLIPSE
+ api('updateShape', {
+  	&quot;shapeType&quot;: &quot;PAD&quot;,
+ 	&quot;jsonCache&quot;: {
+ 	&quot;gId&quot;: &quot;gge5&quot;,
+ 	&quot;net&quot;: &quot;GND&quot;
+ 	&quot;shape&quot;: &quot;ELLIPSE&quot;
+	});
+</code></pre>
+<p>shapeType and gId are must provided.</p>
+<ol>
+<li>Schematic <code>shapeType</code>
+<code>schlib</code>, <code>rect</code>, <code>polyline</code>, <code>polygon</code>, <code>wire</code>, <code>bus</code>, <code>image</code>, <code>circle</code>, <code>ellipse</code>, <code>line</code>, <code>path</code>, <code>arc</code>, <code>annotation</code>, <code>junction</code>, <code>netlabel</code>, <code>busentry</code>, <code>arrowhead</code>, <code>noconnectflag</code>, <code>pin</code>, <code>netflag</code></li>
+<li>PCB <code>shapeType</code>
+<code>FOOTPRINT</code>, <code>TRACK</code>, <code>COPPERAREA</code>, <code>SOLIDREGION</code>, <code>RECT</code>, <code>CIRCLE</code>, <code>TEXT</code>, <code>ARC</code>, <code>DIMENSION</code>, <code>PAD</code>, <code>VIA</code>, <code>HOLE</code></li>
+</ol>
+<p>###Create Shape
+If you want to create EasyEDA shape by codes, you can try. We will provide more information about this API soon, now we just provide examples. You will find out how to do.
+/** with shortUrl
+* @example
+* api('createShape', {shapeType:'schlib', shortUrl:'nxlVIGgQO', from:'system', title:'556_DIL14', x:400, y:300});
+* api('createShape', {shapeType:'FOOTPRINT', shortUrl:'RrkewO60i', from:'system', title:'ARDUINO_PRO_MINI', x:400, y:300});
+<em>/
+/</em>* with jsonCache object
+* @example
+* api('createShape', {
+*   &quot;shapeType&quot;: &quot;PAD&quot;,
+*   &quot;jsonCache&quot;: {
+*     &quot;gId&quot;: &quot;gge5&quot;,
+*     &quot;layerid&quot;: &quot;11&quot;,
+*     &quot;shape&quot;: &quot;ELLIPSE&quot;,
+*     &quot;x&quot;: 382,
+*     &quot;y&quot;: 208,
+*     &quot;net&quot;: &quot;&quot;,
+*     &quot;width&quot;: 6,
+*     &quot;height&quot;: 6,
+*     &quot;number&quot;: &quot;1&quot;,
+*     &quot;holeR&quot;: 1.8,
+*     &quot;pointArr&quot;: [],
+*     &quot;rotation&quot;: &quot;0&quot;
+*   }
+* });
+*
+* @example
+* api('createShape', {
+*     &quot;shapeType&quot;: &quot;polygon&quot;,
+*     &quot;stroke&quot;: &quot;#000000&quot;,
+*     &quot;stroke-width&quot;: &quot;1&quot;,
+*     &quot;stroke-style&quot;: &quot;dashed&quot;,
+*     &quot;fill&quot;: &quot;none&quot;,
+*     &quot;points&quot;: [
+*         {&quot;x&quot;: 390, &quot;y&quot;: 580},
+*         {&quot;x&quot;: 450, &quot;y&quot;: 450},
+*         {&quot;x&quot;: 520, &quot;y&quot;: 580},
+*         {&quot;x&quot;: 610, &quot;y&quot;: 490}
+*     ]
+* });
+*
+* @example
+* api('createShape', {
+*     &quot;shapeType&quot;: &quot;arrowhead&quot;,
+*     &quot;x&quot;: 300,
+*     &quot;y&quot;: 300,
+*     &quot;color&quot;: &quot;#339933&quot;,
+*     &quot;size&quot;: &quot;3&quot;,
+*     &quot;rotation&quot;: 0
+* });
+*
+* @example
+* var ts = [&quot;no_connect_flag&quot;, &quot;arrowhead&quot;, &quot;busentry&quot;, &quot;netLabel_GNd&quot;, &quot;netLabel_GnD&quot;, &quot;netLabel_gnD&quot;, &quot;netLabel_Bar&quot;, &quot;netLabel_VEE&quot;, &quot;netLabel_-5V&quot;, &quot;netLabel_+5V&quot;, &quot;netLabel_VCC&quot;, &quot;netLabel_volProbe&quot;, &quot;netLabel_netPort&quot;, &quot;netLabel_text&quot;, &quot;pin&quot;, &quot;annotation&quot;];
+* for(var i=0;i&lt;ts.length;i++){
+*     api('createShape', {
+*         &quot;shapeType&quot;: ts[i],
+*         &quot;x&quot;: 300 + i%5*50,
+*         &quot;y&quot;: 300 + (i/5|0)*50
+*     });
+* }
+<strong>/
+/</strong> with cached or pre-defined libs
+* @example
+* api('createShape', {&quot;shapeType&quot;: &quot;pcblib&quot;, from:'GeneralPackages', title:'C0402', x:400, y:300});
+* @example
+* api('createShape', {&quot;shapeType&quot;: &quot;schlib&quot;, from:'EasyEDALibs', title:'HDR2X2', x:400, y:300});
+*
+<strong>/
+/</strong>
+* @example 4
+* api('createShape', {
+*     &quot;shapeType&quot;: &quot;schlib&quot;,
+*     &quot;gId&quot;: &quot;gge6&quot;,
+*     &quot;head&quot;: {},
+*     &quot;itemOrder&quot;: [],
+*     &quot;annotation&quot;: {
+*         &quot;gge8&quot;: api('createShape', 'annotation', {}),
+*         &quot;gge9&quot;: api('createShape', 'annotation', {})
+*     },
+*     &quot;pin&quot;: {
+*         &quot;gge11&quot;: api('createShape', 'pin', {}),
+*         &quot;gge14&quot;: api('createShape', 'pin', {})
+*     },
+*     &quot;polyline&quot;: {
+*         &quot;gge10&quot;: api('createShape', 'polyline', {}),
+*         &quot;gge12&quot;: api('createShape', 'polyline', {})
+*     }
+* });
+*
+* @example 5
+* api('createShape', {
+*     &quot;shapeType&quot;: &quot;schlib&quot;,
+*     &quot;gId&quot;: &quot;gge6&quot;,
+*     &quot;head&quot;: {},
+*     &quot;children&quot;: [
+*         api('createShape', 'polyline', {}),
+*         api('createShape', 'polyline', {}),
+*         api('createShape', 'pin', {}),
+*         api('createShape', 'pin', {}),
+*         api('createShape', 'annotation', {}),
+*         api('createShape', 'annotation', {})
+*     ]
+* });
+*
+* @example 6
+* api('createShape', {
+*     &quot;shapeType&quot;: &quot;schlib&quot;,
+*     &quot;gId&quot;: &quot;gge6&quot;,
+*     &quot;head&quot;: {},
+*     &quot;children&quot;: api('createShape', [
+*         ['polyline', {}],
+*         ['polyline', {}],
+*         ['pin', {}],
+*         ['pin', {}],
+*         ['annotation', {}],
+*         ['annotation', {}]
+*     ])
+* });
+**/</p>
+<h3>UI</h3>
+<p>If you want to create an extension, not just a run one time script, maybe need toolbar buttoon. You can check the <a href="https://github.com/dillonHe/EasyEDA-Documents/tree/master/API/example/theme">example</a> before you read.
+####Create Toolbar Button</p>
+<pre><code> //@example create a button 
+ api('createToolbarButton', {
+  icon:'extensions/theme/icon.svg',
+  title:'Theme Colors...',
+  fordoctype:'sch,schlib',
+  cmd:&quot;extension-theme-setting&quot;
+ });
+
+ * @example toolbar with menu
+ * api('createToolbarButton', {
+ *  icon:'extensions/theme/icon.svg',
+ *  title:'Theme Colors...',
+ *  fordoctype:'sch,schlib',
+ *  &quot;menu&quot; : [
+ *      {&quot;text&quot;:&quot;White on Black&quot;, &quot;cmd&quot;:&quot;extension-theme-WhiteOnBlack&quot;},
+ *      {&quot;text&quot;:&quot;Black on White&quot;, &quot;cmd&quot;:&quot;extension-theme-BlackOnWhite&quot;},
+ *      {&quot;text&quot;:&quot;Custom Colors...&quot;, &quot;cmd&quot;:&quot;extension-theme-setting&quot;}
+ *  ]
+ * });
+</code></pre>
+<p>####Create Extension Menu
+/**
+* @example<br />
+* api('createExtensionMenu', [
+*  {
+*      &quot;text&quot;:&quot;Theme Colors...&quot;,
+*      &quot;fordoctype&quot;: &quot;sch,schlib&quot;,
+*      &quot;cmd&quot;: &quot;extension-theme-white&quot;
+*  }
+* ]);
+*/
+###Create Dialog
+check the <a href="https://github.com/dillonHe/EasyEDA-Documents/tree/master/API/example/theme">example</a>
+###Command List</p>
+<p>####Clone
+// clone gge2 gge3 and return their new ids.
+var newIds = api('clone', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]})
+####Delete
+api('delete', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Rotate
+// rotate ids to 90 degree
+api('rotate', {ids:[&quot;gge2&quot;,&quot;gge3&quot;],degree:90});
+####Rotate Left
+//anticlockwise
+api('rotate_left', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Rotate Right</p>
+<pre><code>//clockwise
+api('rotate_right', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+</code></pre>
+<p>####Fliph
+api('fliph', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Flipv
+api('flipv', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Align Left
+api('align_left', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Align Right
+api('align_right', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Align Top
+api('align_top', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+####Align Bottom
+api('align_bottom', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+###Selection
+Change or get selection states of EasyEDA objects in editor.
+####Select</p>
+<pre><code>  // gge2 and gge3 will be marked as selected.
+  api('select', {ids:[&quot;gge2&quot;,&quot;gge3&quot;]});
+</code></pre>
+<p>####Select None
+//no objects will be selected.
+api('selectNone');
+####Get Selected Ids
+var ids = api('getSelectedIds');
+###Move
+You can use <a href="#UpdateShape">Update Shape</a> to change the shapes position, but the Move method is better in this case.
+####Move Objects
+Move shapes in relative coordinates, like move the shapes in arrow keys.</p>
+<pre><code>//Move gge2 and gge3 from left to right in 20pixel or 200mil step
+//from top to bottom in 20pixel or 200mil step.
+api('moveObjs', {objs:[{gId:&quot;gge2&quot;},{gId:&quot;gge3&quot;}], addX: 20, addY: 20});
+
+//Move gge2 and gge3 from right to left in 20pixel or 200mil step
+api('moveObjs', {objs:[&quot;gge2&quot;,&quot;gge3&quot;], addX:-20});
+
+//Move selected objects from left to right in 20pixel or 200mil step
+api('moveObjs', {addX:20});
+</code></pre>
+<p>####Move Objects To
+How to move a <code>VIA</code> or <code>junction</code> to position <code>{x:'10mil', y:'10mil'}</code> ?, Move shapes to absolute coordinates.</p>
+<pre><code> //Move gge2 and gge3 to Canvas postion 20,20, the real coordinates are dedpend the origin.
+ api('moveObjsTo', {objs:[{gId:&quot;gge2&quot;},{gId:&quot;gge3&quot;}], x:20, y:20});
+
+//move gge2 and gge3 to 10mm, 10mm coordinates
+ api('moveObjsTo', {objs:[&quot;gge2&quot;,&quot;gge3&quot;], x: api('coordConvert', {type:'real2canvas',x: '10mm'}), y: api('coordConvert', {type:'real2canvas',y: '10mm'})});
+
+//Move selected objects to Canvas postion 20,20, the real coordinates are dedpend the origin.
+ api('moveObjsTo', {x:20, y:20});
+</code></pre>
+<p>It is very easy to understand to move a PAD, VIA, Junction to absolution coordinates. But what are the effects of moving TRACK, FOOTPRINT, netlabel to some where. Just try to play the codes, you will find out the regular pattern.</p>
+<p>###SetOriginXY
+EasyEDA's canvas origin is 0,0, you can't change it. But the real coordinates can be mapped to any where.
+//set the real origin point to canvas x = 400, y = 300. X,Y is pixel all the time.
+var result = api('setOriginXY', {x:400,y:300});
+###Coordinate Convert
+You can use mm or mil or inch as units, but when you apply the Parameters to SVG graph, you must use coordinate convert.</p>
+<pre><code>//convert the canvas x 400 to real postion, the value is depent your units and origin point.
+var result = api('coordConvert', {type:'canvas2real',x:400})
+
+//the default units is your canvas units, but you can add a units like 300mm. if your PCB's units is mil, then you will get the canvas coordinate 400mil,300mm.
+ var result = api('coordConvert', {type:'real2canvas',x:400,y:'300mm'});
+</code></pre>
+<p>If you set the origin to <strong>0,0</strong>. It is very easy to map the coordinate in your mind, you don't need to use API to convert. the canvas coordinate <strong>100,100</strong> equal the real coordinate <strong>1000mil, 1000mil</strong> or <strong>1inch, 1inch</strong> or <strong>393.7mm, 393.7mm</strong></p>
+<p>###Value Convert
+How to set the pad's hole size to 20mm? How to set the Track width to 20mil?</p>
+<pre><code>//the default units is your canvas units, but you can add a units like mm, mil, inch, even pixel.
+ var result = api('valConvert', {type:'real2canvas',val:400});
+ result = api('valConvert', {type:'real2canvas',val:'400mm'})
+
+ //convert the 400 pixel to real value, the value is depent your units , if the unit is mil, the result should be 4000
+ //result = api('valConvert', {type:'canvas2real',val:400})
+</code></pre>
+<p>If you can keep in mind 1pixel in canvas equal 10mil, so you don't need this API, you can do it in raw way. For example,
+If you want to update the track size to 20mil, you can do.</p>
+<pre><code> api('updateShape', {
+  	&quot;shapeType&quot;: &quot;TRACK&quot;,
+ 	&quot;jsonCache&quot;: {
+	 	&quot;gId&quot;: &quot;gge5&quot;,
+	 	&quot;strokeWidth&quot;: 2
+    }
+	});
+</code></pre>
+<p>Or</p>
+<pre><code> api('updateShape', {
+  	&quot;shapeType&quot;: &quot;TRACK&quot;,
+ 	&quot;jsonCache&quot;: {
+	 	&quot;gId&quot;: &quot;gge5&quot;,
+	 	&quot;strokeWidth&quot;:  api('valConvert', {type:'real2canvas',val:'20mil'})
+    }
+ });
+</code></pre>
+<p>###Get SVG Arc Path
+SVG <a href="http://www.w3.org/TR/SVG11/paths.html#PathElement">Arc path Parameter</a> is very complex,  We provide a API to convert human read ARC parameter to SVG path.</p>
+<pre><code> var result = api('getSvgArcPathByCRA', {cx:0, cy:0, rx:90, ry:90, startAngle:0.1, endAngle:0.7, sweepFlag:1});
+</code></pre>
+<p>result should be <code>M89.55037487502231 8.985007498214534A90 90 0 0 1 68.83579685560396 57.97959185139219</code></p>
+<p>##Examples
+check <a href="https://github.com/dillonHe/EasyEDA-Documents/tree/master/API/example">Github example</a></p>
+<p>Enjoy it, if you have any questions, do let us know.</p>
+
+  </article>
+</div>
+<script>
+// FROM http://purecss.io/js/ui.js
+(function (window, document) {
+
+  var layout   = document.getElementById('layout'),
+  menu     = document.getElementById('menu'),
+  menuLink = document.getElementById('menuLink');
+
+  function toggleClass(element, className) {
+    var classes = element.className.split(/\s+/),
+    length = classes.length,
+    i = 0;
+
+    for(; i < length; i++) {
+      if (classes[i] === className) {
+	classes.splice(i, 1);
+	break;
+      }
+    }
+    // The className is not found
+    if (length === classes.length) {
+      classes.push(className);
+    }
+
+    element.className = classes.join(' ');
+  }
+
+  menuLink.onclick = function (e) {
+    var active = 'active';
+
+    e.preventDefault();
+    toggleClass(layout, active);
+    toggleClass(menu, active);
+    toggleClass(menuLink, active);
+  };
+
+}(this, this.document));
+</script>
+</body>
+</html>

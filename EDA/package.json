@@ -1,0 +1,14 @@
+{
+  "name": "eda",
+  "version": "0.0.1",
+  "description": "在线电子设计软件实验指导书",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eda"
+  ],
+  "author": "ldc",
+  "license": "MIT"
+}
