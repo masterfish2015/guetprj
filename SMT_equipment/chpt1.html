@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SMT设备原理及应用 第一章 概述</title>
+
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js-3.3.0/css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal.js-3.3.0/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js-3.3.0/css/print/pdf.css' : 'reveal.js-3.3.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <h3>电子表面组装技术<br/>
+							（Surface Mount Technology, SMT)
+						</h3>
+                    <p>
+                        新一代的电子装联技术，以采用<span class="fragment  highlight-red">贴装元器件</span>进行<span class="fragment highlight-blue">表面贴装</span>的技术和采用<span class="fragment highlight-green">回流焊</span>技术为特点
+                    </p>
+                </section>
+                <section>
+                    <h3>SMT技术包含的内容</h3>
+                    <ol>
+                        <li>SMT工艺设计</li>
+                        <li>电子设备与可靠性</li>
+                        <li>元器件封装设计与制作</li>
+                        <li>工艺辅料</li>
+                        <li>SMT管理</li>
+                        <li>SMT专用设备维护与保养</li>
+                    </ol>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>1.1 电子制造设备概述</h2>
+                </section>
+                <section>
+                    <h3>1.1.1 电子制造技术</h2>
+					</section>
+					<section>
+						<h4>电子专业制造服务<br/>(Electronic Contract Manufacturing Servers, EMS)</h3>
+                    <p>指为电子产品制造商提供制造、采购、部分设计及物流等一系列服务的生产厂家。</p>
+                    <p>相对于传统的原始设备制造厂商(Original Equipment Manufacture, OEM)或原始设计制造商（Original Design Manufacturer， ODM）服务仅仅提供产品的设计与代工生产，EMS提供的是知识与管理的服务，如产品开发、产品生产、物料管理、后勤运输、甚至产品的维修服务。
+                        <p>
+                </section>
+                <section>
+                    <p>国际知名的EMS厂商有 <span class="fragment  highlight-red">鸿海(Foxconn)</span>、<span class="fragment  highlight-red">伟创力（Flextronics）</span> 、<span class="fragment  highlight-red">纬创（Wistron）</span>等。</p>
+                    <p>只做代工（OEM）的有 <span class="fragment  highlight-green ">深圳振华</span>等。</p>
+                </section>
+                <section>
+                    <h3>1.1.2 电子产品制造设备构成 </h3>
+                    <img src='images/手机拆解图.png' align="left" width="40%" height="40%">
+                    <p>任何一个电子设备都是由 <span class="fragment  highlight-red">控制电路（control circuit）</span>、<span class="fragment  highlight-red">工作电路（working circuit）</span>、<span class="fragment  highlight-red">输出电路（output circuit）</span>、<span class="fragment  highlight-red">电源电路（power circuit）</span>、
+                        <span class="fragment  highlight-red">面板（panel）</span>、<span class="fragment  highlight-red">机壳（shell）</span>等部分组成</p>
+                </section>
+                <section>
+                    <h4>SMT生产设备</h4>
+                    <hr>
+                    <h5>焊膏印刷机 solder printer</h5>
+                    <img src='images/焊膏印刷机.jpg' align="left">
+                    <img src='images/焊膏印刷机-手动.gif' align="right" height="50%" width="50%">
+                </section>
+                <section>
+                    <h4>SMT生产设备</h4>
+                    <hr>
+                    <h5>贴片机 pick and place/mount machine</h5>
+                    <img src='images/贴片机.jpg' align="left" height="30%" width="30%">
+                    <img src='images/转塔贴片机.jpg' height="40%" width="40%">
+                    <img src='images/贴片机-内部.jpg' align="right" height="50%" width="50%">
+                </section>
+                <section>
+                    <h4>SMT生产设备</h4>
+                    <hr>
+                    <h5>回流焊机 reflow oven</h5>
+                    <img src='images/回流焊机.jpg' height="80%" width="80%">
+                </section>
+                <section>
+                    <h4>SMT生产设备</h4>
+                    <hr>
+                    <h5>波峰焊机 wave solder oven</h5>
+                    <img src='images/波峰焊机.jpg' height="80%" width="80%">
+                </section>
+                <section>
+                    <h4>SMT检测设备</h4>
+                    <hr>
+                    <ul>
+                        <li>在线测试仪ICT</li>
+                        <li>光学检查仪AOI</li>
+                        <li>X射线检查仪X-ray tester</li>
+                        <li>炉温曲线测试仪 The temperature profile test instrument</li>
+                        <li>其他。。。</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>SMT维修设备</h4>
+                    <hr>
+                    <ul>
+                        <li>BGA返修台</li>
+                        <li>恒温烙铁</li>
+                        <li>吸锡枪</li>
+                        <li>其他</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>生产辅助设备</h4>
+                    <hr> 上板机、接驳台、下板机、超声波清洗机、锡膏搅拌机、胶水脱泡机、PCB制版机、漆包线剥线机、元件计数器、防静电设备等。。。
+                </section>
+                <section>
+                    <h3>1.1.3 电子制造设备的工作环境</h3>
+                    <hr>
+                    <ul>
+                        <li>
+                            <h4><span class="fragment highlight-red">温度</span></h4> 印刷环境要求23℃±3℃，工厂温度设定为17℃~28℃
+                        </li>
+                        <li>
+                            <h4><span class="fragment highlight-red">湿度</span></h4> 一般要求45%~70%RH，太低则容易产生静电，太高则容易吸潮
+                        </li>
+                        <li>
+                            <h4><span class="fragment highlight-red">空气</span></h4>
+                            <p>保持空气清洁度在10万级（BGJ73-84），CO<sub>2</sub>在1000ppm10<sup>-6</sup>以下，CO在10ppm10<sup>-6</sup>以下，防止灰尘，减少含S、N、CO等有害气体</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>1.1.3 电子制造设备的工作环境</h3>
+                    <hr>
+                    <ul>
+                        <li>
+                            <h4><span class="fragment highlight-red">照明</span></h4>
+                            <p>理想照明度在800lx~1200lx。</p>
+                        </li>
+                        <li>
+                            <h4><span class="fragment highlight-red">排风</span></h4>
+                            <p>回流焊炉和波峰焊炉都需要排风，风量最小为15m<sup>3</sup>/min</p>
+                        </li>
+                        <li>
+                            <h4><span class="fragment highlight-red">电源</span></h4>
+                            <p>单相220VAC，三相380V，大功率设备要单独布线。</p>
+                        </li>
+                        <li>
+                            <h4><span class="fragment highlight-red">气源</span></h4>
+                            <p>压力为7kgf/cm<sup>2</sup>。</p>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>1.2 SMT生产线的组成与分类</h2>
+                    <hr>
+                    <img src="images/SMT生产车间.png">
+                    <br>
+                </section>
+                <section>
+                    <h3>1.2.1 SMT大概流程配置线</h2>
+						<hr>
+						<img src="images/SMT生产线基本配置.png"><br>
+						最简单的SMT生产线至少包括印刷机、贴片机和回流焊炉，一般还要加上检测设备。
+					</section>
+					<section>
+						<h4>SMT线体设备的布局</h2>
+						<hr>
+						<img src="images/SMT生产线配置1.jpg"><br>
+						<ol>
+							<li>一般性布局：<br>
+								[焊膏印刷机]-->[贴片机]-->[接驳台]-->[回流焊机]
+							</li>
+							<li>完整性布局<br>
+								[上板机]-->[焊膏印刷机]-->[AOI]-->[贴片机]-->[AOI]-->[接驳台]-->[回流焊炉]-->[AOI]-->[下板机]
+							</li>
+						</ol>
+						为了提高速度，应该选用全自动的印刷机，并分别配置一台高速贴片机（射片机，chip shooter）和一台多功能贴片机（用于比较大和异性的元件）。
+					</section>
+					<section>
+						<h3>1.2.2 SMT生产线分类</h3>
+                    <h4>单线</h4>
+                    <hr>
+                    <img src="images/SMT单线生产线.png">
+                </section>
+                <section>
+                    <h3>1.2.2 SMT生产线分类</h3>
+                    <h4>双线</h4>
+                    <hr>
+                    <img src="images/SMT双线生产线.png">
+                </section>
+                <section>
+                    <h3>1.2.2 SMT生产线分类</h3>
+                    <h4>集成组装系统</h4>
+                    <hr>
+                    <img src="images/SMT-Smart-Factory.jpg">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>1.3 SMT生产线的设计</h2>
+                </section>
+                <section>
+                    <h3>1.3.1 总体设计</h3>
+                    <hr>
+                    <ol>
+                        <li>元器件（components）和基板（substrate）的选择:插装元件多少、引脚间距等，建立元器件数据库和工艺要求</li>
+                        <li>组装方式及工艺流程：
+                            <ul>
+                                <li>传统：采用插装技术</li>
+                                <li>I型：全表面组装技术</li>
+                                <li>II型：双面混合组装技术</li>
+                                <li>III型:单面混合组装技术</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>1.3.2 根据产量来确定生产线的自动程度</h3>
+                    <hr>
+                    <ul>
+                        <li>手动生产线</li>
+                        <li>半自动: ＜3000片/h, 精度不定</li>
+                        <li>低速线：＜8000片/h，精度 ＞±0.2mm，不建议采用</li>
+                        <li>中速高精度线：＜20000片/h，精度 ＜±0.1mm，建议采用，柔性好</li>
+                        <li>高速线：＞50000片/h，精度 ＞±0.2mm，适合于单一产品</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>1.3.3 SMT设备的选型</h3>
+                    <hr>
+                    <ul>
+                        <li>性能、功能及可靠性：重要程度：性能＞可靠性＞功能</li>
+                        <li>可扩展性和灵活性</li>
+                        <li>可操作性和可维护性</li>
+                        <li>其他考虑：
+                            <ol>
+                                <li>验收：性能指标、标准样板、产品</li>
+                                <li>技术队伍</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>1.3.4 电子制造工厂车间布局</h3>
+                    <hr>
+                    <ul>
+                        <li>熟悉车间现状：空间大小，地面，防静电，空调，湿度控制，抽风系统，电力，出入口（至少两个），消防，仓库，照明等</li>
+                        <li>车间使用要求：快速定位，满足未来扩展，有序排列，划定区域等</li>
+                        <li>布局要求：灭火器，料车，备料台，印刷工位，锡膏放置区，目捡和维修区，网板放置区，垃圾区，看板区，产品区，SMT备件区，温湿度测定区，办公区，防静电设施，</li>
+                        <li>其他要求：仓管，气路，电路，抽风</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>1.3.5 提高生产线效率</h3>
+                    <hr>
+                    <ul>
+                        <li>减少停机时间（down time）：减少批量的准备，避免出现零件短缺，有计划进行定期的维护（运行120h-140h/周的设备必须每周维护）</li>
+                        <li>减少瓶颈（bottle neck）：贴片机和ICT</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>1.4 电子制造设备的发展</h2>
+                </section>
+                <section>
+                    <h3>电子制造设备的发展</h3>
+                    <ul>
+                        <li>贴装设备:高精度，高速度，多功能</li>
+                        <li>印刷设备：高密度，多种方式的检测，高质量印刷</li>
+                        <li>焊接设备:无铅化，倒装焊技术，导电胶胶接技术</li>
+                        <li>检测设备：多种非光学检测设备的应用，检测与工艺分析结合</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>SMT线体的发展</h3>
+                    <ul>
+                        <li>绿色环保：无铅，其他</li>
+                        <li>连线高效：</li>
+                        <li>信息集成和柔性生产</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
+    <script src="reveal.js-3.3.0/js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: 'reveal.js-3.3.0/plugin/markdown/marked.js'
+            }, {
+                src: 'reveal.js-3.3.0/plugin/markdown/markdown.js'
+            }, {
+                src: 'reveal.js-3.3.0/plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'reveal.js-3.3.0/plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+</body>
+
+</html>
